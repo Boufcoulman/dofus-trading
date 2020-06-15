@@ -47,7 +47,7 @@ class ScrollHdv(threading.Thread):
                 # On screen
                 # insert screen instruction here
 
-                # On
+                # On scroll
 
                 time.sleep(0.8)
             time.sleep(0.1)

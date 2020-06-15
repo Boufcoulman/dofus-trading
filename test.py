@@ -10,6 +10,8 @@ import re
 mouse = Controller()
 print(mouse.position)
 
+cwd = os.getcwd()
+print(cwd)
 
 ts = time.localtime()
 print(ts)

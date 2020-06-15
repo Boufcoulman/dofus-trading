@@ -1,0 +1,1 @@
+def ressource_treatment():
