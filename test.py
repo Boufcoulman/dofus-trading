@@ -25,7 +25,8 @@ txt = "images/truc/mon_image.png"
 x = re.sub(r'^(.*)([a-zA-Z_]*).png', r'\1\2_done.png', txt)
 print(x)
 
-
+test_dictionnaire = {1: (120, 110, 27), 2: (121, 112, 28)}
+print(test_dictionnaire[1][2])
 # get_screen(930, 230, 'test')
 
 # for x in range(10):

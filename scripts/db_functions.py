@@ -8,25 +8,27 @@ cursor = conn.cursor()
 def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
     # Création de la table ressource si non existante
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS """+ressource+"""(
+    CREATE TABLE IF NOT EXISTS dofus_trading_table(
          timestamp TEXT,
-         prix_moyen INTERGER,
-         prix_unitaire INTERGER,
-         prix_dizaine INTERGER,
-         prix_centaine INTERGER
+         ressource TEXT,
+         prix_moyen INTEGER,
+         prix_unitaire INTEGER,
+         prix_dizaine INTEGER,
+         prix_centaine INTEGER
     )
     """)
 
     # Ajout de la récupération de données
     cursor.execute("""
-    INSERT INTO """+ressource+"""(
+    INSERT INTO dofus_trading_table(
         timestamp,
+        ressource,
         prix_moyen,
         prix_unitaire,
         prix_dizaine,
         prix_centaine
-        ) VALUES(?, ?, ?, ?, ?)""",
-                   (timestamp, moyen, unite, dix, cent)
+        ) VALUES(?, ?, ?, ?, ?, ?)""",
+                   (timestamp, ressource, moyen, unite, dix, cent)
                    )
     conn.commit()
     conn.close()

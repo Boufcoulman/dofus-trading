@@ -2,10 +2,9 @@ import mss
 from PIL import Image
 import numpy as np
 import re
-import pytesseract
 
 
-def screen_rectangle(screen_name, top, left, width, height):
+def screen_rectangle(screen_name, left, top, width, height):
     """
     Fonction de capture d'un rectangle voulu
     avec nom du screen et zone à capturer en input
@@ -35,7 +34,7 @@ def change_colors(path_image):
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
             r, v, b = img[i, j]
-            if r > 90:
+            if r > 120:
                 r = 0
                 v = 0
                 b = 0
@@ -50,16 +49,10 @@ def change_colors(path_image):
     imgdone.save(path_done)
 
 
-def text_extract(filepath):
-    """
-    Fonction de récupération de texte d'une image en utilisant pytesseract
-    """
-    text = pytesseract.image_to_string(Image.open(filepath))
-    return text
-
 # Debug zone
 
 
-print(text_extract('images/test_prix_done.png'))
-change_colors('images/test_full.png')
+# change_colors('images/test_full.png')
 # screen_rectangle('images/test.png', 160, 160, 160, 135)
+# screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)
+# change_colors('images/test_fenetre.png')

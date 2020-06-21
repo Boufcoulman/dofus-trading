@@ -3,37 +3,45 @@ try:
 except ImportError:
     import Image
 import pytesseract
-import os
+from scripts.parsing_functions import text_extract
+from scripts.image_functions import change_colors, screen_rectangle
 
 
-def ocr_core(filename):
-    """
-    This function will handle the core OCR processing of images.
-    """
-    text = pytesseract.image_to_string(Image.open(filename))
-    # We'll use Pillow's Image class to open the image and pytesseract to detec
-    # the string in the image
-    return text
+screen_rectangle('images/test_fenetre.png', 940, 353, 80, 25)
+change_colors('images/test_fenetre.png')
+print(text_extract('images/test_fenetre_done.png'))
 
-    # im_sharp = im.filter(ImageFilter.SHARPEN)
-    # # Saving the filtered image to a new file
-    # im_sharp.save('image_sharpened.jpg')
-    #
-    # # Splitting the image into its respective bands, i.e. Red, Green,
-    # # and Blue for RGB
-    # r, g, b = im_sharp.split()
-    #
-    # # Viewing EXIF data embedded in image
-    # exif_data = im._getexif()
-    # exif_data
+# def ocr_core(filename):
+#     """
+#     This function will handle the core OCR processing of images.
+#     """
+#     text = pytesseract.image_to_string(Image.open(filename))
+#     # We'll use Pillow's Image class to open the image and pytesseract to detec
+#     # the string in the image
+#     return text
+
+# im_sharp = im.filter(ImageFilter.SHARPEN)
+# # Saving the filtered image to a new file
+# im_sharp.save('image_sharpened.jpg')
+#
+# # Splitting the image into its respective bands, i.e. Red, Green,
+# # and Blue for RGB
+# r, g, b = im_sharp.split()
+#
+# # Viewing EXIF data embedded in image
+# exif_data = im._getexif()
+# exif_data
 # changer_couleurs('images/test_prix_colorized.png')
+
+
+# Debug zone
 
 
 # # Parcours des images du dossier
 # for filename in os.listdir('images'):
 #     print(filename)
 #     print(ocr_core('images/'+filename))
-print(ocr_core('images/test_nom_objet_done.png'))
+# print(ocr_core('images/test_full_done.png'))
 
 
 # def changer_couleurs(filename):
