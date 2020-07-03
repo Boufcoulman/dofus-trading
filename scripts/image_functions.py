@@ -34,7 +34,7 @@ def change_colors(path_image):
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
             r, v, b = img[i, j]
-            if r > 120:
+            if r > 100:
                 r = 0
                 v = 0
                 b = 0
@@ -45,8 +45,10 @@ def change_colors(path_image):
             img[i, j] = (r, v, b)
 
     imgdone = Image.fromarray(img)
-    path_done = re.sub(r'^(.*)([a-zA-Z_]*).png', r'\1\2_done.png', path_image)
+    path_done = re.sub(r'^(.*)([a-zA-Z_]*).png', r'\1\2_bw.png', path_image)
     imgdone.save(path_done)
+
+    return path_done
 
 
 # Debug zone

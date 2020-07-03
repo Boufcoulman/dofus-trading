@@ -3,20 +3,27 @@ try:
 except ImportError:
     import Image
 import pytesseract
-from scripts.parsing_functions import text_extract
+from scripts.parsing_functions import data_extract, lot_parsing, price_parsing
 from scripts.image_functions import change_colors, screen_rectangle
 
 
-screen_rectangle('images/test_fenetre.png', 940, 353, 80, 25)
+screen_rectangle('images/test_fenetre.png', 830, 491, 70, 25)
 change_colors('images/test_fenetre.png')
-print(text_extract('images/test_fenetre_done.png'))
+print(data_extract('images/test_fenetre_bw.png'))
+print(lot_parsing(data_extract('images/test_fenetre_bw.png')))
+
+screen_rectangle('images/test_fenetre.png', 940, 491, 80, 25)
+change_colors('images/test_fenetre.png')
+print(data_extract('images/test_fenetre_bw.png'))
+print(price_parsing(data_extract('images/test_fenetre_bw.png')))
+# print(lot_parsing(data_extract('images/test_fenetre_bw.png')))
 
 # def ocr_core(filename):
 #     """
 #     This function will handle the core OCR processing of images.
 #     """
 #     text = pytesseract.image_to_string(Image.open(filename))
-#     # We'll use Pillow's Image class to open the image and pytesseract to detec
+#     # We'll use Pillow's Image class to open the image and pytesseract to dete
 #     # the string in the image
 #     return text
 
