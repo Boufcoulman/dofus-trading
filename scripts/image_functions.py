@@ -51,9 +51,25 @@ def change_colors(path_image):
     return path_done
 
 
+def end_of_hdv():
+    """
+    Détecte si on atteind le bas de l'hdv
+    """
+    temp_img_name = 'images/check_if_bottom.png'
+    # Capture du pixel
+    screen_rectangle(temp_img_name, 1210, 845, 1, 1)
+
+    # Vérification de la teinte du pixel
+    img_scroll = Image.open(temp_img_name)
+    pix_scroll = list(img_scroll.getdata())
+    r = pix_scroll[0][0]
+    is_bottom = r > 50
+
+    return is_bottom
+
+
 # Debug zone
-
-
+# print(end_of_hdv())
 # change_colors('images/test_full.png')
 # screen_rectangle('images/test.png', 160, 160, 160, 135)
 # screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)

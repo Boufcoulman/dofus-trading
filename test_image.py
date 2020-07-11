@@ -1,21 +1,25 @@
-try:
-    from PIL import Image
-except ImportError:
-    import Image
+from PIL import Image
 import pytesseract
 from scripts.parsing_functions import data_extract, lot_parsing, price_parsing
 from scripts.image_functions import change_colors, screen_rectangle
+import numpy as np
 
 
-screen_rectangle('images/test_fenetre.png', 830, 491, 70, 25)
-change_colors('images/test_fenetre.png')
-print(data_extract('images/test_fenetre_bw.png'))
-print(lot_parsing(data_extract('images/test_fenetre_bw.png')))
+# screen_rectangle('images/test_almost_bottom_scroll.png', 1210, 845, 1, 1)
 
-screen_rectangle('images/test_fenetre.png', 940, 491, 80, 25)
-change_colors('images/test_fenetre.png')
-print(data_extract('images/test_fenetre_bw.png'))
-print(price_parsing(data_extract('images/test_fenetre_bw.png')))
+# im = Image.open('images/test_almost_bottom_scroll.png')
+# pix_val = list(im.getdata())
+# print(pix_val)
+
+# screen_rectangle('images/test_fenetre.png', 830, 491, 70, 25)
+# change_colors('images/test_fenetre.png')
+# print(data_extract('images/test_fenetre_bw.png'))
+# print(lot_parsing(data_extract('images/test_fenetre_bw.png')))
+#
+# screen_rectangle('images/test_fenetre.png', 940, 491, 80, 25)
+# change_colors('images/test_fenetre.png')
+# print(data_extract('images/test_fenetre_bw.png'))
+# print(price_parsing(data_extract('images/test_fenetre_bw.png')))
 # print(lot_parsing(data_extract('images/test_fenetre_bw.png')))
 
 # def ocr_core(filename):

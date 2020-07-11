@@ -1,11 +1,12 @@
 import sqlite3
 
 dbpath = 'E:/Donnees/Programmation/dofus-trading-database/dofus-trading.db'
-conn = sqlite3.connect(dbpath)
-cursor = conn.cursor()
 
 
 def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
+    conn = sqlite3.connect(dbpath)
+    cursor = conn.cursor()
+
     # Création de la table ressource si non existante
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS dofus_trading_table(

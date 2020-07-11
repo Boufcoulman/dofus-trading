@@ -148,5 +148,5 @@ def ressource_treatment(position):
 # Debug zone
 
 
-table_lot = ressource_treatment(4)
-print(table_lot)
+# table_lot = ressource_treatment(5)
+# print(table_lot)
