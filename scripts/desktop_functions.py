@@ -26,8 +26,8 @@ def ressource_click(position):
     Envoi un clic aléatoirement sur la fênetre de la ressource à la position
     indiquée
     """
-    min_x = 665 + position * 46
-    max_x = 890 + position * 46
+    min_x = 665
+    max_x = 890
     min_y = 210 + position * 46
     max_y = 245 + position * 46
     random_click(min_x, max_x, min_y, max_y)
@@ -43,6 +43,14 @@ def null_click():
     min_y = 30
     max_y = 95
     random_click(min_x, max_x, min_y, max_y)
+
+
+def scroll_down():
+    """
+    Scroll une fois vers le bas
+    """
+    mouse = Controller()
+    mouse.scroll(0, -1)
 
 
 # Debug zone

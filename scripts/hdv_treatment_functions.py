@@ -86,6 +86,13 @@ def lot_price_treatment(ordonnee):
     return lot_price
 
 
+def get_ordonnee(position):
+    """
+    Renvoi l'ordonnee de la position voulue dans l'hdv
+    """
+    return 215 + position * 46
+
+
 def ressource_treatment(position):
     """
     Fonction à appeler quand une ressource est cliquée pour enregistrer
@@ -94,7 +101,7 @@ def ressource_treatment(position):
     La fonction n'est exploitable que de 0 à 10 inclus.
     """
     # Calcul de l'ordonnée initiale de la ressource
-    ordonnee = 215 + position * 46
+    ordonnee = get_ordonnee(position)
 
     # Pour chaque portion utile, capture de la portion, changement de couleur,
     # extraction de la donnée, parsing et vérification de la données
@@ -112,7 +119,7 @@ def ressource_treatment(position):
     for ligne in range(1, 4):
         # Pour chaque ligne, on test si on detecte lot de 1, 10 ,100 et on
         # passe au parsing du prix si c'est le cas
-        ordonnee_ligne = ordonnee + ligne * 46
+        ordonnee_ligne = get_ordonnee(position + ligne)
 
         # Récupération du numéro de lot (1, 10 ou 100)
         lot_number = lot_number_treatment(ordonnee_ligne)
@@ -145,8 +152,29 @@ def ressource_treatment(position):
     # Sortie de debug
     return ressource_name, mid_price, table_lot
 
-# Debug zone
 
+def nbr_lots(position):
+    """
+    Récupère le nombre de ligne indiquant un lot pour la position donnée
+    """
+    compte_lots = 0
+    # Récupération du nombre de ligne contenant "lot de"
+    for ligne in range(1, 4):
+        # Pour chaque ligne, on test si on detecte lot de 1, 10 ,100 et on
+        # passe au parsing du prix si c'est le cas
+        ordonnee_ligne = get_ordonnee(position + ligne)
+
+        # Récupération du numéro de lot (1, 10 ou 100)
+        lot_number = lot_number_treatment(ordonnee_ligne)
+
+        # Si c'est bien un nombre valide on incrémente le compte
+        if lot_number in ['1', '10', '100']:
+            compte_lots += 1
+
+    return compte_lots
+
+
+# Debug zone
 
 # table_lot = ressource_treatment(5)
 # print(table_lot)

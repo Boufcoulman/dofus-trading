@@ -12,6 +12,7 @@ mouse = Controller()
 
 print(mouse.position)
 mouse.position = (1213, 845)
+mouse.scroll(0, -1)
 # screen_rectangle('images/test.png', mouse.position[0], mouse.position[1], 335, 45)
 # screen_rectangle('images/test_fenetre.png', 1070, 215, 100, 25)
 
