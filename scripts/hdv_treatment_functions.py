@@ -115,7 +115,7 @@ def ressource_treatment(position):
     mid_price = mid_price_treatment(ordonnee)
 
     # Récupération des prix unitaire, dizaine et centaine
-    table_lot = {'1': 0, '10': 0, '100': 0}
+    table_lot = {'1': '', '10': '', '100': ''}
     for ligne in range(1, 4):
         # Pour chaque ligne, on test si on detecte lot de 1, 10 ,100 et on
         # passe au parsing du prix si c'est le cas
@@ -128,7 +128,7 @@ def ressource_treatment(position):
             table_lot[lot_number] = lot_price_treatment(ordonnee_ligne)
 
     # Récupération du timestamp
-    timestamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
+    timestamp = time.strftime("%d%m%Y %H", time.localtime())
 
     # Ajout des données dans la base s'il y a un prix moyen
     if mid_price != 0:
@@ -174,7 +174,5 @@ def nbr_lots(position):
     return compte_lots
 
 
-# Debug zone
-
-# table_lot = ressource_treatment(5)
-# print(table_lot)
+if __name__ == "__main__":
+    print(nbr_lots(8))

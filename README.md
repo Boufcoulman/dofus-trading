@@ -1,6 +1,6 @@
 # WIP:dofus-trading
 Scripts python personnalisés permettant de récupérer des prix de l'hôtel de vente dofus de manière automatisée
-
+La vocation secondaire de ce projet est éducative pour moi. N'hesitez pas à faire des retours concernant des pistes d'améliorations, sur le fonctionnement, le nommage des fichiers, des fonctions, l'utilisation de git, les dépendances, etc...
 
 ## Description des fichiers
 

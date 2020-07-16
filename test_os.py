@@ -10,16 +10,20 @@ import re
 mouse = Controller()
 print(mouse.position)
 
+randy = 10 * random.randint(-1, 1)
+print(randy)
+print(int(randy))
+
 cwd = os.getcwd()
 print(cwd)
 
 ts = time.localtime()
 print(ts)
 
-print(time.strftime("%Y%m%d_%H%M%S", ts))
+print(time.strftime("%d%m%Y %H", ts))
 
-for filename in os.listdir('images'):
-    print(filename)
+# for filename in os.listdir('images'):
+#     print(filename)
 
 txt = "images/truc/mon_image.png"
 x = re.sub(r'^(.*)([a-zA-Z_]*).png', r'\1\2_done.png', txt)

@@ -3,7 +3,20 @@ import pytesseract
 from scripts.parsing_functions import data_extract, lot_parsing, price_parsing
 from scripts.image_functions import change_colors, screen_rectangle
 import numpy as np
+import mss
+import time
 
+
+with mss.mss() as sct:
+    # La partie de l'ecran à capturer
+    monitor = {"top": 400, "left": 400, "width": 200, "height": 200}
+    print(time.time())
+    # Capture l'écran
+    sct_img = sct.grab(monitor)
+    print(time.time())
+    # Sauvegarde l'image
+    mss.tools.to_png(sct_img.rgb, sct_img.size, output='images/test.png')
+    print(time.time())
 
 # screen_rectangle('images/test_almost_bottom_scroll.png', 1210, 845, 1, 1)
 

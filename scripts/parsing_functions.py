@@ -23,7 +23,7 @@ def price_parsing(price):
     if parsed_price.isdigit():
         return parsed_price
     else:
-        return 0
+        return ''
 
 
 def lot_parsing(text):

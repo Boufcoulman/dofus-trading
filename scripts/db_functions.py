@@ -1,23 +1,15 @@
 import sqlite3
 
-dbpath = 'E:/Donnees/Programmation/dofus-trading-database/dofus-trading.db'
+# dbpath = 'E:/Donnees/Programmation/dofus-trading-database/dofus-trading.db'
+dbpath = '../dofus-trading.db'
 
 
 def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
+    """
+    Permet d'ajouter la recupération d'une donnée dans la base
+    """
     conn = sqlite3.connect(dbpath)
     cursor = conn.cursor()
-
-    # Création de la table ressource si non existante
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS dofus_trading_table(
-         timestamp TEXT,
-         ressource TEXT,
-         prix_moyen INTEGER,
-         prix_unitaire INTEGER,
-         prix_dizaine INTEGER,
-         prix_centaine INTEGER
-    )
-    """)
 
     # Ajout de la récupération de données
     cursor.execute("""
@@ -35,6 +27,26 @@ def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
     conn.close()
 
 
-# Debug zone
+def init_db():
+    """
+    Fonction à utiliser manuellement pour créer la base
+    """
+    conn = sqlite3.connect(dbpath)
+    cursor = conn.cursor()
 
-# add_ressource_line('tomate', '20200613_075146', 1200, 950, 11000, 122000)
+    # Création de la table ressource si non existante
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS dofus_trading_table(
+         timestamp TEXT,
+         ressource TEXT,
+         prix_moyen INTEGER,
+         prix_unitaire INTEGER,
+         prix_dizaine INTEGER,
+         prix_centaine INTEGER
+    )
+    """)
+
+
+if __name__ == "__main__":
+
+    init_db()

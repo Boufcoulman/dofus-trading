@@ -63,14 +63,15 @@ def end_of_hdv():
     img_scroll = Image.open(temp_img_name)
     pix_scroll = list(img_scroll.getdata())
     r = pix_scroll[0][0]
+    print(r)
     is_bottom = r > 50
 
     return is_bottom
 
 
-# Debug zone
-# print(end_of_hdv())
-# change_colors('images/test_full.png')
-# screen_rectangle('images/test.png', 160, 160, 160, 135)
-# screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)
-# change_colors('images/test_fenetre.png')
+if __name__ == "__main__":
+    print(end_of_hdv())
+    # change_colors('images/test_full.png')
+    # screen_rectangle('images/test.png', 160, 160, 160, 135)
+    # screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)
+    # change_colors('images/test_fenetre.png')

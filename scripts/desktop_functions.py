@@ -1,6 +1,7 @@
 import time
 import random
 from pynput.mouse import Button, Controller
+from stopper import escape_on_escape
 
 
 def random_click(min_x, max_x, min_y, max_y):
@@ -12,13 +13,13 @@ def random_click(min_x, max_x, min_y, max_y):
     # On définit la souris, on la place et on clique
     mouse = Controller()
     mouse.position = (random_x, random_y)
-    time.sleep(0.1 + random.random() * 0.2)
+    time.sleep(0.05 + random.random() * 0.1)
     mouse.click(Button.left)
     # Fênetre de clic ressource :
     # (667, 245), (665, 208), (892, 210), (893,245)
 
     # Fênetre de clic hors hdv :
-    # (356, 92), (347, 29), (1183, 32), (1181, 94)²
+    # (356, 92), (347, 29), (1183, 32), (1181, 94)
 
 
 def ressource_click(position):
@@ -53,6 +54,18 @@ def scroll_down():
     mouse.scroll(0, -1)
 
 
-# Debug zone
-# random_click(665, 890, 210, 245)
-null_click()
+def random_walk(time_step):
+    """
+    Fait bouger aléatoirement la souris
+    """
+    mouse = Controller()
+    escape_on_escape()
+    while True:
+        randx = random.randint(-1, 1)
+        randy = random.randint(-1, 1)
+        mouse.position = (mouse.position[0] + randx, mouse.position[1] + randy)
+        time.sleep(time_step)
+
+
+if __name__ == "__main__":
+    random_walk(0.2)

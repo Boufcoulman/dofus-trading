@@ -1,6 +1,8 @@
 import time
 from hdv_treatment_functions import ressource_treatment, nbr_lots
 from desktop_functions import ressource_click, null_click, scroll_down
+from image_functions import end_of_hdv
+from stopper import escape_on_escape
 
 
 def ressource_get(position):
@@ -21,6 +23,7 @@ def ressource_get(position):
 
         # On ferme la fenêtre de la ressource
         ressource_click(position)
+        time.sleep(0.1)
 
     # Si la ressource est en bas de l'ecran
     else:
@@ -30,15 +33,17 @@ def ressource_get(position):
 
         # On scroll une fois vers le bas de sorte à afficher toutes les valeurs
         scroll_down()
+        time.sleep(0.1)
 
         # On compte combien de ligne de lot sont visibles dans la plage
-        compte_lots = nbr_lots(position)
+        compte_lots = nbr_lots(position - 3)
 
         # On applique l'algorithme de récupération des données en Fonction
         ressource_treatment(position - compte_lots)
 
         # On ferme la fenêtre de la ressource
         ressource_click(position - compte_lots)
+        time.sleep(0.1)
 
 
 def add_top_ressources(entry_number):
@@ -55,14 +60,27 @@ def scroll_whole_selection():
     Parcours toute la selection actuelle de l'hotel des vente
     A lancer quand l'hdv est ouvert sans ressource selectionnée
     """
-    # Tant qu'on est pas en bas de l'hdv, on capture les 3 premières ressources
-    # on scroll et on vérifie si on est en bas de l'hdv
+    # Permet d'interrompre le programme avec un appui sur echap
+    escape_on_escape()
 
-    # Une fois qu'on est en bas, on capture les 14 premières ressources (donc
-    # toutes celles affichées à l'ecran). Cela entraine 0 1 ou 2 doublons
-    # d'entrée dans la base, mais ce n'est pas un problème
+    # Tant qu'on est pas en bas de l'hdv
+    bottom = False
+    while not bottom:
+        # On capture les 3 premières ressources
+        add_top_ressources(3)
+
+        # On scroll et on vérifie si on est en bas de l'hdv
+        scroll_down()
+        time.sleep(0.1)
+        bottom = end_of_hdv()
+
+    # Une fois qu'on est en bas, on capture les 14 premières ressources
+    # (donc toutes celles affichées à l'ecran). Cela entraine 0 1 ou 2
+    # doublons d'entrée dans la base, mais ce n'est pas un problème
+    add_top_ressources(14)
 
 
-# Debug zone
-# add_top_ressources(4)
-ressource_get(11)
+if __name__ == "__main__":
+    escape_on_escape()
+    time.sleep(5)
+    add_top_ressources(3)
