@@ -63,7 +63,6 @@ def end_of_hdv():
     img_scroll = Image.open(temp_img_name)
     pix_scroll = list(img_scroll.getdata())
     r = pix_scroll[0][0]
-    print(r)
     is_bottom = r > 50
 
     return is_bottom

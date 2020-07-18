@@ -15,3 +15,11 @@ La vocation secondaire de ce projet est éducative pour moi. N'hesitez pas à fa
 * Récupération du prix de toutes les runes de forgemagie classiques
 * Récupération du prix de ressources précises présélectionnées
 * Récupération de l'ensemble des prix d'un hdv ressource/rune/consommable (en dernier ça)
+
+
+## Setup pour Windows en vrac
+upgrade pip : python -m pip install --upgrade pip
+Récupérer le projet git
+Installer pipenv, dans le shell windows : pip install pipenv
+Lancer pipenv dans le dossier du projet en local, toujours dans le shell windows : pipenv shell
+Installer les dépendances : pipenv install

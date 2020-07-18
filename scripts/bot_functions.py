@@ -9,7 +9,7 @@ def ressource_get(position):
     """
     Réalise le traitement de la ressource à la position indiquée (0 à 13)
     /! peut ne pas être valable si l'appel est fait pour les position 11, 12
-    ou 13 et que la ressource concernée n'a que 2 lots
+    ou 13 et que la ressource concernée n'a que 1 ou 2 lots
     """
     # On fait un random click pour s'assurer qu'on est sur la fenêtre
     null_click()
@@ -29,11 +29,11 @@ def ressource_get(position):
     else:
         # On ouvre la fenêtre de la ressource
         ressource_click(position)
-        time.sleep(0.1)
+        time.sleep(0.3)
 
         # On scroll une fois vers le bas de sorte à afficher toutes les valeurs
         scroll_down()
-        time.sleep(0.1)
+        time.sleep(0.3)
 
         # On compte combien de ligne de lot sont visibles dans la plage
         compte_lots = nbr_lots(position - 3)
@@ -81,6 +81,4 @@ def scroll_whole_selection():
 
 
 if __name__ == "__main__":
-    escape_on_escape()
-    time.sleep(5)
-    add_top_ressources(3)
+    scroll_whole_selection()

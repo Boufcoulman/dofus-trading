@@ -1,4 +1,7 @@
-from PIL import Image
+try:
+    from PIL import Image
+except ImportError:
+    import Image
 import pytesseract
 from scripts.parsing_functions import data_extract, lot_parsing, price_parsing
 from scripts.image_functions import change_colors, screen_rectangle
@@ -18,6 +21,8 @@ with mss.mss() as sct:
     mss.tools.to_png(sct_img.rgb, sct_img.size, output='images/test.png')
     print(time.time())
 
+    time.sleep(1)
+    print(time.time())
 # screen_rectangle('images/test_almost_bottom_scroll.png', 1210, 845, 1, 1)
 
 # im = Image.open('images/test_almost_bottom_scroll.png')
