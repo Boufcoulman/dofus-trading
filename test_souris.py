@@ -2,17 +2,21 @@ import time
 from pynput.mouse import Button, Controller
 from pynput.keyboard import Listener, KeyCode
 from scripts.image_functions import screen_rectangle
+from scripts.stopper import escape_on_escape
 import random
 
 # On définit la souris
 mouse = Controller()
 
-
+escape_on_escape()
 # On récupère la position actuelle
 
 print(mouse.position)
-mouse.position = (1213, 845)
-mouse.scroll(0, -1)
+
+time.sleep(100)
+
+# mouse.position = (1213, 845)
+# mouse.scroll(0, -1)
 # screen_rectangle('images/test.png', mouse.position[0], mouse.position[1], 335, 45)
 # screen_rectangle('images/test_fenetre.png', 1070, 215, 100, 25)
 

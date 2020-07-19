@@ -3,12 +3,7 @@ import os
 
 
 def on_press(key):
-    try:
-        print('alphanumeric key {0} pressed'.format(
-            key.char))
-    except AttributeError:
-        print('special key {0} pressed'.format(
-            key))
+    print('key {0} pressed'.format(key))
 
 
 def on_release(key):
@@ -25,3 +20,7 @@ def escape_on_escape():
         on_press=on_press,
         on_release=on_release)
     listener.start()
+
+
+if __name__ == "__main__":
+    escape_on_escape()
