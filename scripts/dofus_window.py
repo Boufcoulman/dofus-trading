@@ -1,4 +1,6 @@
 from pynput import mouse, keyboard
+from stopper import escape_on_escape
+import env_var
 import time
 
 
@@ -9,8 +11,8 @@ def use_key(typing_device, keyboard_key):
     présente dans le paquet pynput de ma machine, autrement
     il ferait très bien le travail
     """
-    typing_device.press(keyboard.Key.enter)
-    typing_device.release(keyboard.Key.enter)
+    typing_device.press(keyboard_key)
+    typing_device.release(keyboard_key)
 
 
 def open_dofus():
@@ -20,6 +22,8 @@ def open_dofus():
     Sous ce format :
     Le répertoire contenant dofus.exe doit être ajouté au PATH windows
     """
+    escape_on_escape()
+
     # Ajout du clavier
     typing_device = keyboard.Controller()
 
@@ -27,22 +31,21 @@ def open_dofus():
 
     # Appel de windows+R
     with typing_device.pressed(keyboard.Key.cmd):
-        typing_device.press('r')
-        typing_device.release('r')
+        use_key(typing_device, 'r')
 
     time.sleep(0.2)
+
     # Lancement de dofus
     typing_device.type('dofus')
-    typing_device.press(keyboard.Key.enter)
-    typing_device.release(keyboard.Key.enter)
+    use_key(typing_device, keyboard.Key.enter)
 
     time.sleep(10)
     # Passage de la popup "lancement sans launcher"
-    typing_device.press(keyboard.Key.enter)
-    typing_device.release(keyboard.Key.enter)
+    use_key(typing_device, keyboard.Key.enter)
 
     time.sleep(0.2)
     # Saisie du mot de passe
+    typing_device.type(PASSWORD)
 
 
 if __name__ == "__main__":

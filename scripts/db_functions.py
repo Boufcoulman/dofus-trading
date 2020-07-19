@@ -30,6 +30,7 @@ def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
 def init_db():
     """
     Fonction à utiliser manuellement pour créer la base
+    Ne fait rien si la base existe
     """
     conn = sqlite3.connect(dbpath)
     cursor = conn.cursor()
