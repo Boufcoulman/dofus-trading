@@ -1,6 +1,5 @@
 from pynput import mouse, keyboard
 from stopper import escape_on_escape
-import env_var
 import time
 
 
@@ -45,7 +44,7 @@ def open_dofus():
 
     time.sleep(0.2)
     # Saisie du mot de passe
-    typing_device.type(PASSWORD)
+    # typing_device.type()
 
 
 if __name__ == "__main__":
