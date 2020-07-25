@@ -7,6 +7,9 @@ from pynput.mouse import Button, Controller
 import time
 import re
 
+# Commande pour force push la config :
+# git add --patch --force
+
 mouse = Controller()
 print(mouse.position)
 
