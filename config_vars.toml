@@ -1,0 +1,5 @@
+[login_infos]
+password="foo"
+
+[screen_infos]
+test="bar"
