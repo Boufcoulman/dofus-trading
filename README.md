@@ -4,14 +4,14 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 
 ## Description des fichiers
 
-`scripts/db_functions.py` contient les fonctions utiles à la manipulation de la base de données.<br>
-`scripts/desktop_functions.py` contient les fonctions liées à la simulation de geste humain (souris, clavier, ...).<br>
-`scripts/image_functions.py` contient les fonctions liées à la manipulation d'image.<br>
-`scripts/parsing_functions.py` contient les fonctions liées à la détection de texte.<br>
-`scripts/hdv_treatment_functions.py` contient la fonction à utiliser quand une ressource est cliquée. Gère la récupération des informations de la ressource et l'ajout dans la base de données.<br>
+`scripts/database.py` contient les fonctions utiles à la manipulation de la base de données.<br>
+`scripts/desktop.py` contient les fonctions liées à la simulation de geste humain (souris, clavier, ...).<br>
+`scripts/screen.py` contient les fonctions liées à la manipulation d'image.<br>
+`scripts/parsing.py` contient les fonctions liées à la détection de texte.<br>
+`scripts/treatment.py` contient la fonction à utiliser quand une ressource est cliquée. Gère la récupération des informations de la ressource et l'ajout dans la base de données.<br>
 `scripts/stopper.py` contient les fonctions permettant de gérer les interruptions de script.<br>
 `scripts/dofus_window.py` contient les scripts d'ouverture/fermeture de dofus.<br>
-`scripts/bot_functions.py` contient les scripts à ordonnancer/ exécuter pour récupérer alimenter la base de données en mâsse.
+`scripts/dofus_bot.py` contient les scripts à ordonnancer/ exécuter pour récupérer alimenter la base de données en mâsse.
 
 ## Projets de scripts à faire tourner régulièrement :
 * Récupération du prix de toutes les runes de forgemagie classiques
@@ -26,11 +26,18 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 - Installer pipenv, dans le shell windows : `pip install pipenv`
 - Lancer pipenv dans le dossier du projet en local, toujours dans le shell windows : `pipenv shell`
 - Installer les dépendances : `pipenv install`
-- [WIP] Changer les valeurs en dur de sorte à faire correspondre les fenêtres de capture et de clic à son écran.
 - Ajouter le répertoire d'installation de dofus à la variable d'environnement windows, PATH :
 `C:\Users\<votre_session_utilisateur>\AppData\Local\Ankama\zaap\dofus` par défaut
 - Mettre son jeu à jour via le launcher
 - Changer les paramètres de connexion dans la fenêtre de jeu dofus de sorte à avoir une connexion directe vers le jeu et non au choix des serveurs ou des personnages
 
+
+## Setup la configuration pour qu'elle soit adaptée à son écran
+Le programme a été développé en prenant en dur les valeurs de pixels adaptées à l'ordinateur de développement.
+
+Pour rendre le bot adapté à sa machine, il faut aller modifier les différentes variables du fichier `config_vars.toml`.
+
+[WIP] Pour récupérer les bonnes valeurs, vous pouvez voir la doc.
+
 ## Setup pour la récupération des prix des runes
-- Se connecter à son personnage et l'emmener sur la carte d'hôtel de vente des runes (de Brakmar, potentiellement fonctionnel à Bonta et à Brakmar) puis fermer le jeu.
+- Se connecter à son personnage et l'emmener sur la carte d'hôtel de vente des runes de Brakmar puis fermer le jeu.

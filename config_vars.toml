@@ -2,7 +2,16 @@
 password="foo"
 
 [screen_infos]
-ressource_click_min_x=665
+# Commun
+line_height = 46
 
+# desktop.py
+ressource_click_min_x = 665
+ressource_click_max_x = 890
+ressource_click_min_y = 210
+ressource_click_max_y = 245
 
-test2="foobar"
+null_click_min_x = 350
+null_click_max_x = 1180
+null_click_min_y = 30
+null_click_max_y = 95

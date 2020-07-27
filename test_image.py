@@ -3,8 +3,8 @@ try:
 except ImportError:
     import Image
 import pytesseract
-from scripts.parsing_functions import data_extract, lot_parsing, price_parsing
-from scripts.image_functions import change_colors, screen_rectangle
+from scripts.parsing import data_extract, lot_parsing, price_parsing
+from scripts.screen import change_colors, screen_rectangle
 import numpy as np
 import mss
 import time

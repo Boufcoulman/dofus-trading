@@ -1,6 +1,6 @@
-from image_functions import screen_rectangle, change_colors
-from parsing_functions import data_extract, lot_parsing, price_parsing
-from db_functions import add_ressource_line
+from screen import screen_rectangle, change_colors
+from parsing import data_extract, lot_parsing, price_parsing
+from database import add_ressource_line
 import time
 
 

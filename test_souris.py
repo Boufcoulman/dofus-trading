@@ -1,7 +1,7 @@
 import time
 from pynput.mouse import Button, Controller
 from pynput.keyboard import Listener, KeyCode
-from scripts.image_functions import screen_rectangle
+from scripts.screen import screen_rectangle
 from scripts.stopper import escape_on_escape
 import random
 

@@ -1,7 +1,7 @@
 import time
-from hdv_treatment_functions import ressource_treatment, nbr_lots
-from desktop_functions import ressource_click, null_click, scroll_down
-from image_functions import end_of_hdv
+from treatment import ressource_treatment, nbr_lots
+from desktop import ressource_click, null_click, scroll_down
+from screen import end_of_hdv
 from stopper import escape_on_escape
 
 

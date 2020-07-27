@@ -1,1 +1,1 @@
-pipenv run python scripts/bot_functions.py
+pipenv run python scripts/dofus_bot.py

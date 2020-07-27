@@ -1,4 +1,3 @@
-
 import pytesseract
 from PIL import Image
 import re
@@ -40,9 +39,5 @@ def lot_parsing(text):
         return '0'
 
 
-# Debug zone
-
-# print(price_parsing('124 572.12'))
-# print(text_extract('images/test_prix_done.png'))
-# print(text_extract('images/test_fenetre_done.png'))
-# print(ressource_parsing('lol')[0])
+if __name__ == "__main__":
+    print(price_parsing('124 572.12'))
