@@ -1,6 +1,6 @@
 from pynput import mouse, keyboard
 from scripts.stopper import escape_on_escape
-from scripts.dofus_window import use_key
+from scripts.window import use_key
 import time
 
 escape_on_escape()

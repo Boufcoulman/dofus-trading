@@ -2,16 +2,27 @@ from screen import screen_rectangle, change_colors
 from parsing import data_extract, lot_parsing, price_parsing
 from database import add_ressource_line
 import time
+from read_config import screen_infos
 
 
-def name_treatment(ordonnee):
+def get_start_y(position):
+    """
+    Renvoi l'ordonnee de la position voulue dans l'hdv
+    """
+    return screen_infos('start_y') + position * screen_infos('line_height')
+
+
+def name_treatment(start_y):
     """
     Fonction à appeler quand une ressource est cliquée pour récupérer son nom.
     """
     image_name = 'images/ressource_name.png'
 
     # Capture du nom de la ressource
-    screen_rectangle(image_name, 665, ordonnee, 235, 25)
+    start_x = screen_infos('name_start_x')
+    width = screen_infos('name_width')
+    height = screen_infos('parsing_height')
+    screen_rectangle(image_name, start_x, start_y, width, height)
 
     # Extraction du nom de la ressource
     result_path = change_colors(image_name)
@@ -34,7 +45,7 @@ def price_treatment(image_name):
     return price
 
 
-def mid_price_treatment(ordonnee):
+def mid_price_treatment(start_y):
     """
     Fonction à appeler quand une ressource est cliquée pour récupérer son prix
     moyen.
@@ -42,7 +53,10 @@ def mid_price_treatment(ordonnee):
     image_name = 'images/mid_price.png'
 
     # Capture du prix moyen
-    screen_rectangle(image_name, 1070, ordonnee, 100, 25)
+    start_x = screen_infos('mid_price_start_x')
+    width = screen_infos('mid_price_width')
+    height = screen_infos('parsing_height')
+    screen_rectangle(image_name, start_x, start_y, width, height)
 
     # Récupération du prix à ajouter dans la database
     mid_price = price_treatment(image_name)
@@ -50,7 +64,7 @@ def mid_price_treatment(ordonnee):
     return mid_price
 
 
-def lot_number_treatment(ordonnee):
+def lot_number_treatment(start_y):
     """
     Fonction à appeler quand une ressource est cliquée pour récupérer
     son numéro de lot.
@@ -58,7 +72,10 @@ def lot_number_treatment(ordonnee):
     image_name = 'images/lot_number.png'
 
     # Capture du nombre de lot
-    screen_rectangle(image_name, 830, ordonnee, 70, 25)
+    start_x = screen_infos('lot_number_start_x')
+    width = screen_infos('lot_number_width')
+    height = screen_infos('parsing_height')
+    screen_rectangle(image_name, start_x, start_y, width, height)
 
     # Récupération de l'information du lot
     result_path = change_colors(image_name)
@@ -70,7 +87,7 @@ def lot_number_treatment(ordonnee):
     return lot_number
 
 
-def lot_price_treatment(ordonnee):
+def lot_price_treatment(start_y):
     """
     Fonction à appeler quand une ressource est cliquée pour récupérer
     son prix de lot.
@@ -78,19 +95,15 @@ def lot_price_treatment(ordonnee):
     image_name = 'images/lot_price.png'
 
     # Capture du prix de lot
-    screen_rectangle(image_name, 940, ordonnee, 80, 25)
+    start_x = screen_infos('lot_price_start_x')
+    width = screen_infos('lot_price_width')
+    height = screen_infos('parsing_height')
+    screen_rectangle(image_name, start_x, start_y, width, height)
 
     # Récupération du prix à ajouter dans la base de données
     lot_price = price_treatment(image_name)
 
     return lot_price
-
-
-def get_ordonnee(position):
-    """
-    Renvoi l'ordonnee de la position voulue dans l'hdv
-    """
-    return 215 + position * 46
 
 
 def ressource_treatment(position):
@@ -101,7 +114,7 @@ def ressource_treatment(position):
     La fonction n'est exploitable que de 0 à 10 inclus.
     """
     # Calcul de l'ordonnée initiale de la ressource
-    ordonnee = get_ordonnee(position)
+    start_y = get_start_y(position)
 
     # Pour chaque portion utile, capture de la portion, changement de couleur,
     # extraction de la donnée, parsing et vérification de la données
@@ -109,23 +122,23 @@ def ressource_treatment(position):
     # une boucle sur les 3 lignes suivantes
 
     # Récupération du nom de la ressource
-    ressource_name = name_treatment(ordonnee)
+    ressource_name = name_treatment(start_y)
 
     # Récupération du prix moyen
-    mid_price = mid_price_treatment(ordonnee)
+    mid_price = mid_price_treatment(start_y)
 
     # Récupération des prix unitaire, dizaine et centaine
     table_lot = {'1': '', '10': '', '100': ''}
-    for ligne in range(1, 4):
+    for line in range(1, 4):
         # Pour chaque ligne, on test si on detecte lot de 1, 10 ,100 et on
         # passe au parsing du prix si c'est le cas
-        ordonnee_ligne = get_ordonnee(position + ligne)
+        start_y_line = get_start_y(position + line)
 
         # Récupération du numéro de lot (1, 10 ou 100)
-        lot_number = lot_number_treatment(ordonnee_ligne)
+        lot_number = lot_number_treatment(start_y_line)
         # Récupération du prix associé et ajout dans la table_lot
         if lot_number in ['1', '10', '100']:
-            table_lot[lot_number] = lot_price_treatment(ordonnee_ligne)
+            table_lot[lot_number] = lot_price_treatment(start_y_line)
 
     # Récupération du timestamp
     timestamp = time.strftime("%d%m%Y %H", time.localtime())
@@ -134,21 +147,6 @@ def ressource_treatment(position):
     if mid_price != 0:
         add_ressource_line(ressource_name, timestamp, mid_price,
                            table_lot['1'], table_lot['10'], table_lot['100'])
-
-    # Une fois toutes les portions traitées, ajout de la données
-    # à la base de données avec le timestamp actuel
-
-    # A priori +46 en ordonnée pour passer d'une ressource à la suivante
-    #
-    # nom ressource :       (665, 215, 235, 25)
-    # prix moyen :          (1070, 215, 100, 25)
-    # premier champ lot :   (830, 261, 70, 25)
-    # premier prix lot :    (940, 261, 80, 25)
-    # deuxieme champ lot :  (830, 307, 70, 25)
-    # deuxieme prix lot :   (940, 307, 80, 25)
-    # troisieme champ lot : (830, 353, 70, 25)
-    # troisieme prix lot :  (940, 353, 80, 25)
-
     # Sortie de debug
     return ressource_name, mid_price, table_lot
 
@@ -159,13 +157,13 @@ def nbr_lots(position):
     """
     compte_lots = 0
     # Récupération du nombre de ligne contenant "lot de"
-    for ligne in range(1, 4):
+    for line in range(1, 4):
         # Pour chaque ligne, on test si on detecte lot de 1, 10 ,100 et on
         # passe au parsing du prix si c'est le cas
-        ordonnee_ligne = get_ordonnee(position + ligne)
+        start_y_line = get_start_y(position + line)
 
         # Récupération du numéro de lot (1, 10 ou 100)
-        lot_number = lot_number_treatment(ordonnee_ligne)
+        lot_number = lot_number_treatment(start_y_line)
 
         # Si c'est bien un nombre valide on incrémente le compte
         if lot_number in ['1', '10', '100']:
@@ -175,4 +173,6 @@ def nbr_lots(position):
 
 
 if __name__ == "__main__":
+    time.sleep(5)
     print(nbr_lots(8))
+    print(name_treatment(215))

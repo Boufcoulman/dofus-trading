@@ -23,10 +23,11 @@ def ressource_click(position):
     Envoi un clic aléatoirement sur la fênetre de la ressource à la position
     indiquée
     """
-    min_x = 665
-    max_x = 890
-    min_y = 210 + position * 46
-    max_y = 245 + position * 46
+    min_x = screen_infos('rc_min_x')
+    max_x = screen_infos('rc_max_x')
+    min_y = screen_infos('rc_min_y') + position * screen_infos('line_height')
+    max_y = screen_infos('rc_max_y') + position * screen_infos('line_height')
+
     random_click(min_x, max_x, min_y, max_y)
 
 
@@ -35,10 +36,11 @@ def null_click():
     Envoi un clic aléatoirement sur la fenêtre hors interface de sorte à ce
     que ça n'entraine aucune action
     """
-    min_x = 350
-    max_x = 1180
-    min_y = 30
-    max_y = 95
+    min_x = screen_infos('nc_min_x')
+    max_x = screen_infos('nc_max_x')
+    min_y = screen_infos('nc_min_y')
+    max_y = screen_infos('nc_max_y')
+
     random_click(min_x, max_x, min_y, max_y)
 
 
@@ -65,4 +67,4 @@ def random_walk(time_step):
 
 if __name__ == "__main__":
     # random_walk(0.1)
-    print(screen_infos('ressource_click_min_x'))
+    print(screen_infos('rc_min_x'))

@@ -2,6 +2,7 @@ import mss
 from PIL import Image
 import numpy as np
 import re
+from read_config import screen_infos
 
 
 def screen_rectangle(screen_name, left, top, width, height):
@@ -51,13 +52,15 @@ def change_colors(path_image):
     return path_done
 
 
-def end_of_hdv():
+def end_of_scroll():
     """
     Détecte si on atteind le bas de l'hdv
     """
     temp_img_name = 'images/check_if_bottom.png'
     # Capture du pixel
-    screen_rectangle(temp_img_name, 1210, 845, 1, 1)
+    x_pixel = screen_infos('x_pixel')
+    y_pixel = screen_infos('y_pixel')
+    screen_rectangle(temp_img_name, x_pixel, y_pixel, 1, 1)
 
     # Vérification de la teinte du pixel
     img_scroll = Image.open(temp_img_name)
@@ -69,7 +72,7 @@ def end_of_hdv():
 
 
 if __name__ == "__main__":
-    print(end_of_hdv())
+    print(end_of_scroll())
     # change_colors('images/test_full.png')
     # screen_rectangle('images/test.png', 160, 160, 160, 135)
     # screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)

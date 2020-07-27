@@ -10,8 +10,8 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 `scripts/parsing.py` contient les fonctions liées à la détection de texte.<br>
 `scripts/treatment.py` contient la fonction à utiliser quand une ressource est cliquée. Gère la récupération des informations de la ressource et l'ajout dans la base de données.<br>
 `scripts/stopper.py` contient les fonctions permettant de gérer les interruptions de script.<br>
-`scripts/dofus_window.py` contient les scripts d'ouverture/fermeture de dofus.<br>
-`scripts/dofus_bot.py` contient les scripts à ordonnancer/ exécuter pour récupérer alimenter la base de données en mâsse.
+`scripts/window.py` contient les scripts d'ouverture/fermeture de dofus.<br>
+`scripts/bot_dofus.py` contient les scripts à ordonnancer/ exécuter pour récupérer alimenter la base de données en mâsse.
 
 ## Projets de scripts à faire tourner régulièrement :
 * Récupération du prix de toutes les runes de forgemagie classiques
@@ -38,6 +38,8 @@ Le programme a été développé en prenant en dur les valeurs de pixels adapté
 Pour rendre le bot adapté à sa machine, il faut aller modifier les différentes variables du fichier `config_vars.toml`.
 
 [WIP] Pour récupérer les bonnes valeurs, vous pouvez voir la doc.
+
+Les valeurs de temporisation sont pour l'instant en dur dans le code. Il est probable qu'elles finissent par apparaitre dans la configuration.
 
 ## Setup pour la récupération des prix des runes
 - Se connecter à son personnage et l'emmener sur la carte d'hôtel de vente des runes de Brakmar puis fermer le jeu.

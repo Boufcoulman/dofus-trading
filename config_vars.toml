@@ -4,14 +4,43 @@ password="foo"
 [screen_infos]
 # Commun
 line_height = 46
+parsing_height = 25
 
-# desktop.py
-ressource_click_min_x = 665
-ressource_click_max_x = 890
-ressource_click_min_y = 210
-ressource_click_max_y = 245
+# get_start_y
+start_y = 215
 
-null_click_min_x = 350
-null_click_max_x = 1180
-null_click_min_y = 30
-null_click_max_y = 95
+# ressource_click
+rc_min_x = 665
+rc_max_x = 890
+rc_min_y = 210
+rc_max_y = 245
+
+# null_click
+nc_min_x = 350
+nc_max_x = 1180
+nc_min_y = 30
+nc_max_y = 95
+
+# end_of_scroll
+x_pixel = 1210
+y_pixel = 845
+
+# name_treatment
+name_start_x = 665
+name_width = 235
+
+# mid_price_treatment
+mid_price_start_x = 1070
+mid_price_width = 100
+
+# lot_number_treatment
+lot_number_start_x = 830
+lot_number_width = 70
+
+# lot_price_treatment
+lot_price_start_x = 940
+lot_price_width = 80
+
+
+[db_infos]
+db_path = 'dofus-trading.db'
