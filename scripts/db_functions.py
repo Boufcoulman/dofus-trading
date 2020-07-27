@@ -1,7 +1,7 @@
 import sqlite3
 
 # dbpath = 'E:/Donnees/Programmation/dofus-trading-database/dofus-trading.db'
-dbpath = '../dofus-trading.db'
+dbpath = 'dofus-trading.db'
 
 
 def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):

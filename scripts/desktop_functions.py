@@ -2,6 +2,7 @@ import time
 import random
 from pynput.mouse import Button, Controller
 from stopper import escape_on_escape
+from read_config import screen_infos
 
 
 def random_click(min_x, max_x, min_y, max_y):
@@ -15,11 +16,6 @@ def random_click(min_x, max_x, min_y, max_y):
     mouse.position = (random_x, random_y)
     time.sleep(0.05 + random.random() * 0.1)
     mouse.click(Button.left)
-    # Fênetre de clic ressource :
-    # (667, 245), (665, 208), (892, 210), (893,245)
-
-    # Fênetre de clic hors hdv :
-    # (356, 92), (347, 29), (1183, 32), (1181, 94)
 
 
 def ressource_click(position):
@@ -68,4 +64,5 @@ def random_walk(time_step):
 
 
 if __name__ == "__main__":
-    random_walk(0.1)
+    # random_walk(0.1)
+    print(screen_infos('ressource_click_min_x'))

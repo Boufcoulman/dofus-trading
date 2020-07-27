@@ -2,5 +2,7 @@
 password="foo"
 
 [screen_infos]
-test="bar"
+ressource_click_min_x=665
+
+
 test2="foobar"

@@ -25,6 +25,12 @@ with mss.mss() as sct:
     print(time.time())
 # screen_rectangle('images/test_almost_bottom_scroll.png', 1210, 845, 1, 1)
 
+# Fênetre de clic ressource :
+# (667, 245), (665, 208), (892, 210), (893,245)
+
+# Fênetre de clic hors hdv :
+# (356, 92), (347, 29), (1183, 32), (1181, 94)
+
 # im = Image.open('images/test_almost_bottom_scroll.png')
 # pix_val = list(im.getdata())
 # print(pix_val)

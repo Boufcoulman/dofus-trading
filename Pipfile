@@ -14,5 +14,6 @@ pillow = "*"
 ipykernel = "*"
 numpy = "*"
 pynput = "*"
-python-language-server = {extras = ["all"], version = "*"}
 toml = "*"
+pyls = "*"
+python-language-server = {extras = ["all"], version = "*"}
