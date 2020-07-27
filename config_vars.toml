@@ -1,6 +1,7 @@
 [login_infos]
 password="foo"
 
+
 [screen_infos]
 # Commun
 line_height = 46
