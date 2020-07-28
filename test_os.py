@@ -23,7 +23,7 @@ print(cwd)
 ts = time.localtime()
 print(ts)
 
-print(time.strftime("%d%m%Y %H", ts))
+print(time.strftime("%d%m%Y %H%M%S", ts))
 
 # for filename in os.listdir('images'):
 #     print(filename)

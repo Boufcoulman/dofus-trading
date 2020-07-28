@@ -16,7 +16,7 @@ def on_release(key):
         return False
 
 
-def escape_on_escape():
+def recoooord():
     listener = keyboard.Listener(
         on_press=on_press,
         on_release=on_release)
@@ -24,5 +24,5 @@ def escape_on_escape():
 
 
 if __name__ == "__main__":
-    escape_on_escape()
+    recoooord()
     time.sleep(100)
