@@ -1,5 +1,5 @@
 import toml
-var_path = "config_vars.toml"
+var_path = "config.toml"
 config_vars = toml.load(var_path)
 
 

@@ -35,7 +35,7 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 ## Setup la configuration pour qu'elle soit adaptée à son écran
 Le programme a été développé en prenant en dur les valeurs de pixels adaptées à l'ordinateur de développement.
 
-Pour rendre le bot adapté à sa machine, il faut aller modifier les différentes variables du fichier `setup/config_vars.toml`, en suivant la documentation du répertoire `setup`.
+Pour rendre le bot adapté à sa machine, il faut créer un fichier `config.toml`, en suivant la documentation du répertoire `setup`.
 
 Les valeurs de temporisation sont pour l'instant en dur dans le code. Il est probable qu'elles finissent par apparaitre dans la configuration en fonction des retours et tests.
 
