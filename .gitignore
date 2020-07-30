@@ -1,5 +1,5 @@
 __pycache__/
-images/
-config_vars.toml
+# images/
+# config_vars.toml
 dofus-trading.db
 mouse_positions.txt

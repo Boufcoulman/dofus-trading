@@ -3,6 +3,7 @@ from treatment import ressource_treatment, nbr_lots
 from desktop import ressource_click, null_click, scroll_down
 from screen import end_of_scroll
 from stopper import escape_on_escape
+from window import open_dofus, open_rune_shop, altf4
 
 
 def ressource_get(position):
@@ -81,5 +82,10 @@ def scroll_whole_selection():
 
 
 if __name__ == "__main__":
+    escape_on_escape()
+    open_dofus()
     time.sleep(5)
+    open_rune_shop()
     scroll_whole_selection()
+    time.sleep(5)
+    altf4()

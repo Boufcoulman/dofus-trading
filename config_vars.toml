@@ -42,6 +42,11 @@ lot_number_width = 70
 lot_price_start_x = 940
 lot_price_width = 80
 
+# open_rune_shop
+brak_rune_x = 1086
+brak_rune_y = 460
+rune_box_x = 370
+rune_box_y = 430
 
 [db_infos]
 db_path = 'dofus-trading.db'

@@ -1,5 +1,6 @@
 from pynput import mouse, keyboard
 from stopper import escape_on_escape
+from read_config import password, screen_infos
 import time
 
 
@@ -48,10 +49,33 @@ def open_dofus():
 
     time.sleep(0.2)
     # Saisie du mot de passe
-    # typing_device.type()
+    typing_device.type(password())
+    # Connexion
+    use_key(typing_device, keyboard.Key.enter)
+    time.sleep(12)
 
-    # Pour fermer :
-    # Key.alt_l + Key.f4
+
+def open_rune_shop():
+    """
+    Permet d'ouvrir l'hôtel de vente des runes de brakmar et de le préparer
+    pour la récupération des prix des runes
+    """
+    # Placement de la souris sur l'hôtel de vente
+    mickey = mouse.Controller()
+    brak_rune_x = screen_infos('brak_rune_x')
+    brak_rune_y = screen_infos('brak_rune_y')
+    mickey.position = (brak_rune_x, brak_rune_y)
+    # Clique
+    mickey.click(mouse.Button.left)
+    time.sleep(2)
+
+    # Placement de la souris sur la tickbox pour l'affichage des runes
+    rune_box_x = screen_infos('rune_box_x')
+    rune_box_y = screen_infos('rune_box_y')
+    mickey.position = (rune_box_x, rune_box_y)
+    # Clique
+    mickey.click(mouse.Button.left)
+    time.sleep(2)
 
 
 def altf4():
@@ -67,6 +91,9 @@ def altf4():
 
 
 if __name__ == "__main__":
+    escape_on_escape()
     open_dofus()
     time.sleep(5)
-    # altf4()
+    open_rune_shop()
+    time.sleep(5)
+    altf4()
