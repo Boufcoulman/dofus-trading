@@ -77,15 +77,15 @@ def scroll_whole_selection():
 
     # Une fois qu'on est en bas, on capture les 14 premières ressources
     # (donc toutes celles affichées à l'ecran). Cela entraine 0 1 ou 2
-    # doublons d'entrée dans la base, mais ce n'est pas un problème
+    # doublons d'entrées dans la base, mais ce n'est pas un problème
     add_top_ressources(14)
 
 
 if __name__ == "__main__":
-    escape_on_escape()
-    open_dofus()
+    # escape_on_escape()
+    # open_dofus()
     time.sleep(5)
-    open_rune_shop()
+    # open_rune_shop()
     scroll_whole_selection()
     time.sleep(5)
     altf4()

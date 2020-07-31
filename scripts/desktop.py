@@ -58,13 +58,13 @@ def random_walk(time_step):
     """
     mouse = Controller()
     escape_on_escape()
+    step = 30
     while True:
-        randx = random.randint(-10, 10)
-        randy = random.randint(-10, 10)
+        randx = random.randint(-step, step)
+        randy = random.randint(-step, step)
         mouse.position = (mouse.position[0] + randx, mouse.position[1] + randy)
         time.sleep(time_step)
 
 
 if __name__ == "__main__":
-    # random_walk(0.1)
-    print(screen_infos('rc_min_x'))
+    random_walk(0.01)

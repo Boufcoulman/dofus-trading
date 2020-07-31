@@ -9,6 +9,7 @@ def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
     Permet d'ajouter la recupération d'une donnée dans la base
     """
     conn = sqlite3.connect(db_path)
+
     cursor = conn.cursor()
 
     # Ajout de la récupération de données
@@ -29,8 +30,8 @@ def add_ressource_line(ressource, timestamp, moyen, unite, dix, cent):
 
 def init_db():
     """
-    Fonction à utiliser manuellement pour créer la base
-    Ne fait rien si la base existe
+    Fonction à utiliser manuellement pour créer la table
+    Ne fait rien si la table existe
     """
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
