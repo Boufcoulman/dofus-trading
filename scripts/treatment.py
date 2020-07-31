@@ -144,7 +144,7 @@ def ressource_treatment(position):
     timestamp = time.strftime("%d%m%Y %H", time.localtime())
 
     # Ajout des données dans la base s'il y a un prix moyen
-    if mid_price != 0:
+    if mid_price.isdigit():
         add_ressource_line(ressource_name, timestamp, mid_price,
                            table_lot['1'], table_lot['10'], table_lot['100'])
     # Sortie de debug
@@ -173,6 +173,5 @@ def nbr_lots(position):
 
 
 if __name__ == "__main__":
-    time.sleep(5)
-    print(nbr_lots(8))
-    print(name_treatment(215))
+    print(mid_price_treatment(215))
+    print(mid_price_treatment(215).isdigit())
