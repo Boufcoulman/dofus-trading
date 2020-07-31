@@ -49,4 +49,4 @@ rune_box_x = 370
 rune_box_y = 430
 
 [db_infos]
-db_path = 'dofus-trading.db'
+db_path = 'dofus-trading.csv'

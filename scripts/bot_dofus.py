@@ -81,11 +81,23 @@ def scroll_whole_selection():
     add_top_ressources(14)
 
 
-if __name__ == "__main__":
-    # escape_on_escape()
-    # open_dofus()
+def rune_mining():
+    """
+    Lance dofus, ouvre l'hotel de vente des runes de brakmar, récupère tous
+    les prix et ferme dofus
+    Nécessite d'avoir déconnecté son personnage sur la carte de l'hotel des
+    ventes des runes de brakmar
+    """
+    # Permet d'interrompre le programme avec un appui sur echap
+    escape_on_escape()
+    open_dofus()
     time.sleep(5)
-    # open_rune_shop()
+    open_rune_shop()
     scroll_whole_selection()
     time.sleep(5)
     altf4()
+
+
+if __name__ == "__main__":
+    time.sleep(5)
+    scroll_whole_selection()
