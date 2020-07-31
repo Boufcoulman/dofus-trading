@@ -1,6 +1,10 @@
 import toml
 var_path = "config.toml"
-config_vars = toml.load(var_path)
+try:
+    config_vars = toml.load(var_path)
+except FileNotFoundError:
+    print("Le fichier {0} est manquant, veuillez le creer".format(var_path))
+    raise
 
 
 def password():
