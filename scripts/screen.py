@@ -3,6 +3,7 @@ from PIL import Image
 import numpy as np
 import re
 from read_config import screen_infos
+import time
 
 
 def screen_rectangle(screen_name, left, top, width, height):
@@ -66,6 +67,7 @@ def end_of_scroll():
     img_scroll = Image.open(temp_img_name)
     pix_scroll = list(img_scroll.getdata())
     r = pix_scroll[0][0]
+    print(pix_scroll[0])
     is_bottom = r > 50
 
     return is_bottom
@@ -74,6 +76,6 @@ def end_of_scroll():
 if __name__ == "__main__":
     # print(end_of_scroll())
     # change_colors('images/test_full.png')
-    screen_rectangle('images/test.png', 160, 160, 160, 135)
-    # screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)
+    screen_rectangle('images/test3.png', 1207, 836, 1, 1)
+    print(end_of_scroll())
     # change_colors('images/test_fenetre.png')

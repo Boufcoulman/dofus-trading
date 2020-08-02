@@ -5,6 +5,8 @@ import os
 
 """
 L'appel du fichier permet de relever la position du curseur pendant un temps
+avec des appuis sur shiftl
+Termine sur un appui sur escape
 """
 
 # On définit la souris
