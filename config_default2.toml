@@ -1,0 +1,52 @@
+[login_infos]
+password="bar"
+
+
+[screen_infos]
+# Commun
+line_height = 45
+parsing_height = 25
+
+# get_start_y
+start_y = 218
+
+# ressource_click
+rc_min_x = 535
+rc_max_x = 715
+rc_min_y = 170
+rc_max_y = 200
+
+# null_click
+nc_min_x = 280
+nc_max_x = 945
+nc_min_y = 30
+nc_max_y = 85
+
+# end_of_scroll
+x_pixel = 1207
+y_pixel = 838
+
+# name_treatment
+name_start_x = 667
+name_width = 232
+
+# mid_price_treatment
+mid_price_start_x = 1070
+mid_price_width = 100
+
+# lot_number_treatment
+lot_number_start_x = 830
+lot_number_width = 70
+
+# lot_price_treatment
+lot_price_start_x = 940
+lot_price_width = 80
+
+# open_rune_shop
+brak_rune_x = 863
+brak_rune_y = 373
+rune_box_x = 306
+rune_box_y = 346
+
+[db_infos]
+db_path = 'dofus-trading.csv'
