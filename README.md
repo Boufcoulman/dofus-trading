@@ -29,8 +29,8 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 - Ajouter le répertoire d'installation de dofus à la variable d'environnement windows, PATH :
 `C:\Users\<votre_session_utilisateur>\AppData\Local\Ankama\zaap\dofus` par défaut
 - Mettre son jeu à jour via le launcher
-- Changer les paramètres de connexion dans le launcher ankama de sorte à avoir une connexion directe vers le jeu et non au choix des serveurs ou des personnages (de sorte à ne pas avoir de reset du paramètre dans la fenêtre de jeu à chaque mise à jour)
-- Changer les paramètres de connexion dans la fenêtre de jeu dofus de sorte à avoir une connexion directe vers le jeu et non au choix des serveurs ou des personnages
+- Changer les paramètres de connexion dans le launcher ankama de sorte à avoir une connexion directe vers le jeu ou au choix des personnages
+- Changer les paramètres de connexion dans la fenêtre de jeu dofus de sorte à avoir une connexion directe vers le jeu ou au choix des personnages
 
 
 ## Setup la configuration pour qu'elle soit adaptée à son écran
