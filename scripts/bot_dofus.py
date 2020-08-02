@@ -91,10 +91,8 @@ def rune_mining():
     # Permet d'interrompre le programme avec un appui sur echap
     escape_on_escape()
     open_dofus()
-    time.sleep(5)
     open_rune_shop()
     scroll_whole_selection()
-    time.sleep(5)
     altf4()
 
 

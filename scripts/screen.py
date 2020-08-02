@@ -72,8 +72,8 @@ def end_of_scroll():
 
 
 if __name__ == "__main__":
-    print(end_of_scroll())
+    # print(end_of_scroll())
     # change_colors('images/test_full.png')
-    # screen_rectangle('images/test.png', 160, 160, 160, 135)
+    screen_rectangle('images/test.png', 160, 160, 160, 135)
     # screen_rectangle('images/test_fenetre.png', 810, 261, 90, 25)
     # change_colors('images/test_fenetre.png')

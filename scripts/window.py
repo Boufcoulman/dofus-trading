@@ -52,7 +52,10 @@ def open_dofus():
     typing_device.type(password())
     # Connexion
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(12)
+    time.sleep(5)
+    # Validation personnage (si nécessaire)
+    use_key(typing_device, keyboard.Key.enter)
+    time.sleep(10)
 
 
 def open_rune_shop():
@@ -93,7 +96,6 @@ def altf4():
 if __name__ == "__main__":
     escape_on_escape()
     open_dofus()
-    time.sleep(5)
     open_rune_shop()
-    time.sleep(5)
+    time.sleep(2)
     altf4()
