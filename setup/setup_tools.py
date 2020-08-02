@@ -16,7 +16,7 @@ def on_release(key):
         file = open('setup/mouse_positions.txt', 'a')
         # Affiche la position de la souris
         pos = mouse.position
-        print(str(mouse.position))
+        print(str(pos))
         file.write(str(pos) + '\n')
 
     if key == keyboard.Key.esc:
