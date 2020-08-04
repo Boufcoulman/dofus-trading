@@ -3,7 +3,7 @@ password="bar"
 
 [mouse_infos]
 # Commun
-m_line_height = 33
+m_line_height = 36
 
 # ressource_click
 rc_min_x = 535
