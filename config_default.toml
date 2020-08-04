@@ -1,14 +1,9 @@
 [login_infos]
 password="foo"
 
-
-[screen_infos]
+[mouse_infos]
 # Commun
-line_height = 46
-parsing_height = 25
-
-# get_start_y
-start_y = 215
+m_line_height = 46
 
 # ressource_click
 rc_min_x = 665
@@ -21,6 +16,20 @@ nc_min_x = 350
 nc_max_x = 1180
 nc_min_y = 30
 nc_max_y = 95
+
+# open_rune_shop
+brak_rune_x = 1086
+brak_rune_y = 460
+rune_box_x = 370
+rune_box_y = 430
+
+[screen_infos]
+# Commun
+s_line_height = 46
+parsing_height = 25
+
+# get_start_y
+start_y = 215
 
 # end_of_scroll
 x_pixel = 1210
@@ -41,12 +50,6 @@ lot_number_width = 70
 # lot_price_treatment
 lot_price_start_x = 940
 lot_price_width = 80
-
-# open_rune_shop
-brak_rune_x = 1086
-brak_rune_y = 460
-rune_box_x = 370
-rune_box_y = 430
 
 [db_infos]
 db_path = 'dofus-trading.csv'

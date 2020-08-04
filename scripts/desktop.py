@@ -2,7 +2,7 @@ import time
 import random
 from pynput.mouse import Button, Controller
 from stopper import escape_on_escape
-from read_config import screen_infos
+from read_config import mouse_infos
 
 
 def random_click(min_x, max_x, min_y, max_y):
@@ -23,10 +23,10 @@ def ressource_click(position):
     Envoi un clic aléatoirement sur la fênetre de la ressource à la position
     indiquée
     """
-    min_x = screen_infos('rc_min_x')
-    max_x = screen_infos('rc_max_x')
-    min_y = screen_infos('rc_min_y') + position * screen_infos('line_height')
-    max_y = screen_infos('rc_max_y') + position * screen_infos('line_height')
+    min_x = mouse_infos('rc_min_x')
+    max_x = mouse_infos('rc_max_x')
+    min_y = mouse_infos('rc_min_y') + position * mouse_infos('m_line_height')
+    max_y = mouse_infos('rc_max_y') + position * mouse_infos('m_line_height')
 
     random_click(min_x, max_x, min_y, max_y)
 
@@ -36,10 +36,10 @@ def null_click():
     Envoi un clic aléatoirement sur la fenêtre hors interface de sorte à ce
     que ça n'entraine aucune action
     """
-    min_x = screen_infos('nc_min_x')
-    max_x = screen_infos('nc_max_x')
-    min_y = screen_infos('nc_min_y')
-    max_y = screen_infos('nc_max_y')
+    min_x = mouse_infos('nc_min_x')
+    max_x = mouse_infos('nc_max_x')
+    min_y = mouse_infos('nc_min_y')
+    max_y = mouse_infos('nc_max_y')
 
     random_click(min_x, max_x, min_y, max_y)
 
