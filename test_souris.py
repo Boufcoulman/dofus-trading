@@ -1,17 +1,52 @@
 import time
 from pynput.mouse import Button, Controller
 from pynput.keyboard import Listener, KeyCode
-from scripts.screen import screen_rectangle
 from scripts.stopper import escape_on_escape
 import random
+from setup.setup_tools import get_mouse_pos
+import mss
+from PIL import Image
+import numpy as np
+import re
 
 # On définit la souris
 mouse = Controller()
 
 escape_on_escape()
-# On récupère la position actuelle
 
+file = open('setup/mouse_positions.txt', 'a')
+timestamp = str(time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+file.write('\n' + timestamp + '\n')
+file.close()
+
+time.sleep(0.5)
+get_mouse_pos()
+
+# On récupère la position actuelle
+mouse.position = (600, 280)
 print(mouse.position)
+time.sleep(5)
+
+screen_name = 'images/test3.png'
+left = 940
+top = 263
+width = 80
+height = 25
+
+with mss.mss() as sct:
+    # La partie de l'ecran à capturer
+    monitor = {"top": top, "left": left, "width": width, "height": height}
+
+    # Capture l'écran
+    sct_img = sct.grab(monitor)
+
+    # Sauvegarde l'image
+    mss.tools.to_png(sct_img.rgb, sct_img.size, output=screen_name)
+
+
+mouse.position = (600, 280)
+print(mouse.position)
+
 
 time.sleep(100)
 
