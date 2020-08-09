@@ -42,3 +42,4 @@ Les valeurs de temporisation sont pour l'instant en dur dans le code. Il est pro
 
 ## Setup pour la récupération des prix des runes
 - Se connecter à son personnage et l'emmener sur la carte d'hôtel de vente des runes de Brakmar puis fermer le jeu.
+- Ordonnancer la fonction rune_mining() de scripts/bot_dofus.py : sous windows, utiliser le planificateur de tâches et lancer bot_to_schedule.bat dans le dossier du script.
