@@ -2,6 +2,7 @@ import time
 from pynput.mouse import Controller
 from pynput import keyboard
 import os
+import mss
 
 """
 L'appel du fichier permet de relever la position du curseur pendant un temps
@@ -11,6 +12,9 @@ Termine sur un appui sur escape
 
 # On définit la souris
 mouse = Controller()
+
+with mss.mss() as sct:
+    print('Changement de pixelisation')
 
 
 def on_release(key):
