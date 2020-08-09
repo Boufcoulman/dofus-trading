@@ -29,7 +29,7 @@ rc_max_y = 250
 nc_min_x = 355
 nc_max_x = 1175
 nc_min_y = 35
-nc_max_y = 185
+nc_max_y = 95
 
 # name_treatment
 name_start_x = 667

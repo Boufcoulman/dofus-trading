@@ -97,4 +97,4 @@ def rune_mining():
 
 
 if __name__ == "__main__":
-    scroll_whole_selection()
+    rune_mining()

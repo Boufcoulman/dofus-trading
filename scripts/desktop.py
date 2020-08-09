@@ -71,4 +71,4 @@ def random_walk(time_step):
 
 
 if __name__ == "__main__":
-    ressource_click(3)
+    null_click()
