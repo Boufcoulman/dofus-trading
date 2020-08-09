@@ -1,9 +1,23 @@
 [login_infos]
 password="foo"
 
-[mouse_infos]
+[screen_infos]
 # Commun
-m_line_height = 46
+line_height = 46
+parsing_height = 25
+
+# open_rune_shop
+brak_rune_x = 1086
+brak_rune_y = 460
+rune_box_x = 370
+rune_box_y = 430
+
+# get_start_y
+start_y = 215
+
+# end_of_scroll
+x_pixel = 1210
+y_pixel = 845
 
 # ressource_click
 rc_min_x = 665
@@ -16,24 +30,6 @@ nc_min_x = 350
 nc_max_x = 1180
 nc_min_y = 30
 nc_max_y = 95
-
-# open_rune_shop
-brak_rune_x = 1086
-brak_rune_y = 460
-rune_box_x = 370
-rune_box_y = 430
-
-[screen_infos]
-# Commun
-s_line_height = 46
-parsing_height = 25
-
-# get_start_y
-start_y = 215
-
-# end_of_scroll
-x_pixel = 1210
-y_pixel = 845
 
 # name_treatment
 name_start_x = 665
