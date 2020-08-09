@@ -1,7 +1,8 @@
 from pynput import mouse, keyboard
 from stopper import escape_on_escape
-from read_config import password, mouse_infos
+from read_config import password, screen_infos
 import time
+from pixelisation import change_pixelisation
 
 
 def use_key(typing_device, keyboard_key):
@@ -39,7 +40,7 @@ def open_dofus():
     typing_device.type('dofus')
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(10)
+    time.sleep(12)
     # Vérification plein écran windows+arrow up
     with typing_device.pressed(keyboard.Key.cmd):
         use_key(typing_device, keyboard.Key.up)
@@ -63,18 +64,21 @@ def open_rune_shop():
     Permet d'ouvrir l'hôtel de vente des runes de brakmar et de le préparer
     pour la récupération des prix des runes
     """
+    # Permet d'avoir des cliques souris adéquats
+    change_pixelisation()
+
     # Placement de la souris sur l'hôtel de vente
     mickey = mouse.Controller()
-    brak_rune_x = mouse_infos('brak_rune_x')
-    brak_rune_y = mouse_infos('brak_rune_y')
+    brak_rune_x = screen_infos('brak_rune_x')
+    brak_rune_y = screen_infos('brak_rune_y')
     mickey.position = (brak_rune_x, brak_rune_y)
     # Clique
     mickey.click(mouse.Button.left)
     time.sleep(2)
 
     # Placement de la souris sur la tickbox pour l'affichage des runes
-    rune_box_x = mouse_infos('rune_box_x')
-    rune_box_y = mouse_infos('rune_box_y')
+    rune_box_x = screen_infos('rune_box_x')
+    rune_box_y = screen_infos('rune_box_y')
     mickey.position = (rune_box_x, rune_box_y)
     # Clique
     mickey.click(mouse.Button.left)

@@ -34,15 +34,7 @@ width = 80
 height = 25
 
 with mss.mss() as sct:
-    # La partie de l'ecran à capturer
-    monitor = {"top": top, "left": left, "width": width, "height": height}
-
-    # Capture l'écran
-    sct_img = sct.grab(monitor)
-
-    # Sauvegarde l'image
-    mss.tools.to_png(sct_img.rgb, sct_img.size, output=screen_name)
-
+    print('Changement de pixelisation')
 
 mouse.position = (600, 280)
 print(mouse.position)

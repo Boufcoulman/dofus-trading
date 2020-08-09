@@ -97,11 +97,4 @@ def rune_mining():
 
 
 if __name__ == "__main__":
-    position = 3
-    ressource_treatment(position)
-    ressource_click(position)
-    time.sleep(3)
-
-    # On ferme la fenêtre de la ressource
-    ressource_click(position)
-    time.sleep(0.1)
+    rune_mining()

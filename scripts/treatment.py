@@ -9,7 +9,7 @@ def get_start_y(position):
     """
     Renvoi l'ordonnee de la position voulue dans l'hdv
     """
-    return screen_infos('start_y') + position * screen_infos('s_line_height')
+    return screen_infos('start_y') + position * screen_infos('line_height')
 
 
 def name_treatment(start_y):
