@@ -48,7 +48,7 @@ def open_dofus():
     # Passage de la popup "lancement sans launcher"
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(0.2)
+    time.sleep(0.5)
     # Saisie du mot de passe
     typing_device.type(password())
     # Connexion

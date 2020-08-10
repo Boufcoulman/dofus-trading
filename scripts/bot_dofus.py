@@ -19,22 +19,22 @@ def ressource_get(position):
     if position in range(11):
         # On ouvre la fenêtre de la ressource et on récupère ses données
         ressource_click(position)
-        time.sleep(0.1)
+        time.sleep(1.5)
         ressource_treatment(position)
 
         # On ferme la fenêtre de la ressource
         ressource_click(position)
-        time.sleep(0.1)
+        time.sleep(1)
 
     # Si la ressource est en bas de l'ecran
     else:
         # On ouvre la fenêtre de la ressource
         ressource_click(position)
-        time.sleep(0.3)
+        time.sleep(1)
 
         # On scroll une fois vers le bas de sorte à afficher toutes les valeurs
         scroll_down()
-        time.sleep(0.3)
+        time.sleep(1)
 
         # On compte combien de ligne de lot sont visibles dans la plage
         compte_lots = nbr_lots(position - 3)
@@ -44,7 +44,7 @@ def ressource_get(position):
 
         # On ferme la fenêtre de la ressource
         ressource_click(position - compte_lots)
-        time.sleep(0.1)
+        time.sleep(1)
 
 
 def add_top_ressources(entry_number):
@@ -72,7 +72,7 @@ def scroll_whole_selection():
 
         # On scroll et on vérifie si on est en bas de l'hdv
         scroll_down()
-        time.sleep(0.1)
+        time.sleep(1)
         bottom = end_of_scroll()
 
     # Une fois qu'on est en bas, on capture les 14 premières ressources
