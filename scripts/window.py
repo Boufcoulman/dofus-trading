@@ -40,7 +40,7 @@ def open_dofus():
     typing_device.type('dofus')
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(12)
+    time.sleep(17)
     # Vérification plein écran windows+arrow up
     with typing_device.pressed(keyboard.Key.cmd):
         use_key(typing_device, keyboard.Key.up)
@@ -53,10 +53,10 @@ def open_dofus():
     typing_device.type(password())
     # Connexion
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(7)
+    time.sleep(8)
     # Validation personnage (si nécessaire)
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(15)
+    time.sleep(18)
 
 
 def open_rune_shop():
