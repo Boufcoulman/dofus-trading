@@ -23,6 +23,14 @@ def screen_infos(dimension):
     return config_vars['screen_infos'][dimension]
 
 
+def tempo_infos(dimension):
+    """
+    Retourne une information concernant les tempos du fichier de configuration
+    voir le fichier indiqué par `var_path` pour le modifier
+    """
+    return config_vars['tempo_infos'][dimension]
+
+
 def db_path():
     """
     Retourne le chemin de la base de données
