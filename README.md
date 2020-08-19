@@ -37,9 +37,11 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 Le programme a été développé en prenant en dur les valeurs de pixels adaptées à l'ordinateur de développement.
 
 Pour rendre le bot adapté à sa machine, il faut créer un fichier `config.toml`, en suivant la documentation du répertoire `setup`.
-
-Les valeurs de temporisation sont pour l'instant en dur dans le code. Il est probable qu'elles finissent par apparaitre dans la configuration en fonction des retours et tests.
+Les valeurs des temporisations sont arbitraires, certaines sont là pour parer d'éventuels légers lag réseau, d'autres dépendent des performances du la machine qui fait tourner le bot.
 
 ## Setup pour la récupération des prix des runes
 - Se connecter à son personnage et l'emmener sur la carte d'hôtel de vente des runes de Brakmar puis fermer le jeu.
 - Ordonnancer la fonction rune_mining() de scripts/bot_dofus.py : sous windows, utiliser le planificateur de tâches et lancer bot_to_schedule.bat dans le dossier du script.
+
+## Misc
+- Initialement, les données étaient sauvegardées dans une base sqlite, mais dans notre cas d'utilisation pour la visualisation post récupération un fichier texte convient parfaitement. Le module sqlite est toujours présent et est en principe parfaitement fonctionnel.
