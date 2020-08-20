@@ -5,3 +5,5 @@ dofus-trading.db
 mouse_positions.txt
 dofus-trading.csv
 tempo.py
+old_scripts
+test*.py
