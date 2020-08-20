@@ -53,10 +53,10 @@ def open_dofus():
     typing_device.type(password())
     # Connexion
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(tempo_infos('char_tempo'))
-    # Validation personnage (si nécessaire)
-    use_key(typing_device, keyboard.Key.enter)
-    time.sleep(tempo_infos('log_tempo'))
+    # time.sleep(tempo_infos('char_tempo'))
+    # # Validation personnage (si nécessaire)
+    # use_key(typing_device, keyboard.Key.enter)
+    # time.sleep(tempo_infos('log_tempo'))
 
 
 def open_rune_shop():

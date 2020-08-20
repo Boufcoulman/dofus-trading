@@ -12,6 +12,12 @@ brak_rune_y = 462
 rune_box_x = 382
 rune_box_y = 431
 
+# in_brakmar
+brak_pos_x = 10
+brak_pos_y = 42
+brak_pos_width = 100
+brak_pos_height = 32
+
 # get_start_y
 start_y = 218
 

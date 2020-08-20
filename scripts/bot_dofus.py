@@ -1,5 +1,5 @@
 import time
-from treatment import ressource_treatment, nbr_lots
+from treatment import ressource_treatment, nbr_lots, in_brakmar
 from desktop import ressource_click, null_click, scroll_down
 from screen import end_of_scroll
 from stopper import escape_on_escape
@@ -92,6 +92,8 @@ def rune_mining():
     # Permet d'interrompre le programme avec un appui sur echap
     escape_on_escape()
     open_dofus()
+    while not in_brakmar():
+        time.sleep(tempo_infos('test_tempo'))
     open_rune_shop()
     scroll_whole_selection()
     altf4()

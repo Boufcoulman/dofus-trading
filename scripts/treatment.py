@@ -1,4 +1,4 @@
-from screen import screen_rectangle, change_colors
+from screen import screen_rectangle, change_colors, treshold_all
 from parsing import data_extract, lot_parsing, price_parsing
 from database import add_ressource_line
 import time
@@ -172,6 +172,28 @@ def nbr_lots(position):
     return compte_lots
 
 
+def in_brakmar():
+    """
+    Permet de savoir si l'on est bien connecté à Brakmar
+    Renvoi true si brakmar apparait dans le nom de la position en haut
+    à gauche
+    """
+    image_name = 'images/check_if_brakmar.png'
+    # Capture de la fenêtre
+    start_x = screen_infos('brak_pos_x')
+    start_y = screen_infos('brak_pos_y')
+    width = screen_infos('brak_pos_width')
+    height = screen_infos('brak_pos_height')
+    screen_rectangle(image_name, start_x, start_y, width, height)
+
+    # Récupération de l'info texte
+    result_path = change_colors(image_name, treshold_all)
+    brakmar_text = data_extract(result_path)
+    return brakmar_text == 'Brakmar'
+
+
 if __name__ == "__main__":
-    print(mid_price_treatment(215))
-    print(mid_price_treatment(215).isdigit())
+    time.sleep(5)
+    print(in_brakmar())
+    # print(mid_price_treatment(215))
+    # print(mid_price_treatment(215).isdigit())
