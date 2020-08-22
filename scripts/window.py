@@ -61,8 +61,7 @@ def open_dofus():
 
 def open_rune_shop():
     """
-    Permet d'ouvrir l'hôtel de vente des runes de brakmar et de le préparer
-    pour la récupération des prix des runes
+    Permet d'ouvrir l'hôtel de vente des runes de brakmar
     """
     # Permet d'avoir des cliques souris adéquats
     change_pixelisation()
@@ -74,15 +73,23 @@ def open_rune_shop():
     mickey.position = (brak_rune_x, brak_rune_y)
     # Clique
     mickey.click(mouse.Button.left)
-    time.sleep(tempo_infos('shop_tempo'))
+
+
+def check_rune_box():
+    """
+    Permet de cocher la box affichant les runes dans l'hotel de ventes
+    des runes de Brakmar
+    """
+    # Permet d'avoir des cliques souris adéquats
+    change_pixelisation()
 
     # Placement de la souris sur la tickbox pour l'affichage des runes
+    mickey = mouse.Controller()
     rune_box_x = screen_infos('rune_box_x')
     rune_box_y = screen_infos('rune_box_y')
     mickey.position = (rune_box_x, rune_box_y)
     # Clique
     mickey.click(mouse.Button.left)
-    time.sleep(tempo_infos('shop_tempo'))
 
 
 def altf4():

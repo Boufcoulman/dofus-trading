@@ -1,9 +1,10 @@
 import time
-from treatment import ressource_treatment, nbr_lots, in_brakmar
+from treatment import ressource_treatment, nbr_lots
 from desktop import ressource_click, null_click, scroll_down
-from screen import end_of_scroll
+from tester import end_of_scroll, in_brakmar, in_rune_shop
+from tester import is_clicked
 from stopper import escape_on_escape
-from window import open_dofus, open_rune_shop, altf4
+from window import open_dofus, open_rune_shop, check_rune_box, altf4
 from read_config import tempo_infos
 
 
@@ -20,22 +21,32 @@ def ressource_get(position):
     if position in range(11):
         # On ouvre la fenêtre de la ressource et on récupère ses données
         ressource_click(position)
-        time.sleep(tempo_infos('lag_tempo'))
+        # On attend que la ressource soit bien cliquée
+        while not is_clicked(position):
+            time.sleep(tempo_infos('test_tempo'))
         ressource_treatment(position)
 
         # On ferme la fenêtre de la ressource
         ressource_click(position)
-        time.sleep(tempo_infos('lag_tempo'))
+        # On attend que la ressource soit bien décliquée
+        while is_clicked(position):
+            time.sleep(tempo_infos('test_tempo'))
 
-    # Si la ressource est en bas de l'ecran
+    # Si la ressource est en bas de l'ecran il est nécessaire de scroll
     else:
         # On ouvre la fenêtre de la ressource
         ressource_click(position)
-        time.sleep(tempo_infos('lag_tempo'))
+        # Dans le cas de la derniere ressource on ne peut avoir l'info du click
+        if position != 13:
+            # On attend que la ressource soit bien cliquée
+            while not is_clicked(position):
+                time.sleep(tempo_infos('test_tempo'))
+        else:
+            # On prie
+            time.sleep(tempo_infos('lag_tempo'))
 
-        # On scroll une fois vers le bas de sorte à afficher toutes les valeurs
+        # On scroll une fois vers le bas de sorte à afficher tous les prix lot
         scroll_down()
-        time.sleep(tempo_infos('scroll_tempo'))
 
         # On compte combien de ligne de lot sont visibles dans la plage
         compte_lots = nbr_lots(position - 3)
@@ -45,7 +56,8 @@ def ressource_get(position):
 
         # On ferme la fenêtre de la ressource
         ressource_click(position - compte_lots)
-        time.sleep(tempo_infos('lag_tempo'))
+        while is_clicked(position):
+            time.sleep(tempo_infos('test_tempo'))
 
 
 def add_top_ressources(entry_number):
@@ -73,7 +85,6 @@ def scroll_whole_selection():
 
         # On scroll et on vérifie si on est en bas de l'hdv
         scroll_down()
-        time.sleep(tempo_infos('scroll_tempo'))
         bottom = end_of_scroll()
 
     # Une fois qu'on est en bas, on capture les 14 premières ressources
@@ -95,9 +106,13 @@ def rune_mining():
     while not in_brakmar():
         time.sleep(tempo_infos('test_tempo'))
     open_rune_shop()
+    while not in_rune_shop():
+        time.sleep(tempo_infos('test_tempo'))
+    check_rune_box()
     scroll_whole_selection()
     altf4()
 
 
 if __name__ == "__main__":
-    rune_mining()
+    time.sleep(5)
+    scroll_whole_selection()

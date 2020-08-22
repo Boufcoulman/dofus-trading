@@ -4,6 +4,7 @@ from pynput.mouse import Button, Controller
 from stopper import escape_on_escape
 from read_config import screen_infos, tempo_infos
 from pixelisation import change_pixelisation
+from treatment import name_treatment, get_start_y
 
 # Nécessaire pour rendre les cliques souris adéquats
 change_pixelisation()
@@ -51,10 +52,13 @@ def null_click():
 
 def scroll_down():
     """
-    Scroll une fois vers le bas
+    Scroll une fois vers le bas et attend d'avoir eu un résultat
     """
+    old_top_ressource = name_treatment(get_start_y(0))
     mouse = Controller()
     mouse.scroll(0, -1)
+    while old_top_ressource == name_treatment(get_start_y(0)):
+        time.sleep(tempo_infos('test_tempo'))
 
 
 def random_walk(time_step):
