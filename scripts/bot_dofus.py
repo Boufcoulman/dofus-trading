@@ -128,10 +128,6 @@ def rune_mining():
 
 
 if __name__ == "__main__":
+    # rune_mining()
     time.sleep(3)
-    position = 0
-    ressource_click(position)
-    # On attend que la ressource soit bien cliquée
-    while not is_clicked(position):
-        time.sleep(tempo_infos('test_tempo'))
-    ressource_treatment(position)
+    scroll_whole_selection()

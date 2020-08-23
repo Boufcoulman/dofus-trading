@@ -173,5 +173,4 @@ def nbr_lots(position):
 
 if __name__ == "__main__":
     time.sleep(3)
-    lot_number_treatment(306)
-    # print(mid_price_treatment(215).isdigit())
+    print(ressource_treatment(0))
