@@ -6,7 +6,6 @@ from tester import is_clicked, launcher_launched, wait_test
 from tester import runes_showed, ready_to_launch
 from stopper import escape_on_escape
 from window import open_ankama_launcher, instant_click, altf4
-from window import full_screen
 from read_config import tempo_infos
 
 
@@ -107,13 +106,9 @@ def rune_mining():
     time.sleep(tempo_infos('init_tempo'))
     # Lancement d'Ankama Launcher
     open_ankama_launcher()
-    time.sleep(tempo_infos('launch_tempo'))
-    full_screen()
     wait_test(ready_to_launch)
     # Lancement de dofus
     instant_click('start_button_x', 'start_button_y')
-    time.sleep(tempo_infos('launch_tempo'))
-    full_screen()
     wait_test(in_brakmar)
     # Ouverture de l'hôtel de vente des runes
     instant_click('brak_rune_x', 'brak_rune_y')
