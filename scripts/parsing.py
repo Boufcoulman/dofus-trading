@@ -31,6 +31,7 @@ def lot_parsing(text):
     et de récupérer la taille du lot le cas échéant
     """
     parsed_text = text.replace(".", "").replace(" ", "")
+
     lot_number = re.sub(r'^lotde([0-9]*)', r'\1', parsed_text)
 
     if lot_number in ['1', '10', '100']:
@@ -40,4 +41,4 @@ def lot_parsing(text):
 
 
 if __name__ == "__main__":
-    print(price_parsing('124 572.12'))
+    print(lot_parsing('lot de 10'))

@@ -17,3 +17,4 @@ pynput = "*"
 toml = "*"
 pyls = "*"
 python-language-server = {extras = ["all"], version = "*"}
+psutil = "*"

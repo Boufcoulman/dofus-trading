@@ -2,9 +2,11 @@ import time
 from treatment import ressource_treatment, nbr_lots
 from desktop import ressource_click, null_click, scroll_down
 from tester import end_of_scroll, in_brakmar, in_rune_shop
-from tester import is_clicked
+from tester import is_clicked, launcher_launched, wait_test
+from tester import runes_showed, ready_to_launch
 from stopper import escape_on_escape
-from window import open_dofus, open_rune_shop, check_rune_box, altf4
+from window import open_ankama_launcher, instant_click, altf4
+from window import full_screen
 from read_config import tempo_infos
 
 
@@ -102,17 +104,34 @@ def rune_mining():
     """
     # Permet d'interrompre le programme avec un appui sur echap
     escape_on_escape()
-    open_dofus()
-    while not in_brakmar():
-        time.sleep(tempo_infos('test_tempo'))
-    open_rune_shop()
-    while not in_rune_shop():
-        time.sleep(tempo_infos('test_tempo'))
-    check_rune_box()
+    time.sleep(tempo_infos('init_tempo'))
+    # Lancement d'Ankama Launcher
+    open_ankama_launcher()
+    time.sleep(tempo_infos('launch_tempo'))
+    full_screen()
+    wait_test(ready_to_launch)
+    # Lancement de dofus
+    instant_click('start_button_x', 'start_button_y')
+    time.sleep(tempo_infos('launch_tempo'))
+    full_screen()
+    wait_test(in_brakmar)
+    # Ouverture de l'hôtel de vente des runes
+    instant_click('brak_rune_x', 'brak_rune_y')
+    wait_test(in_rune_shop)
+    instant_click('rune_box_x', 'rune_box_y')
+    wait_test(runes_showed)
+    # Extraction du prix des runes
     scroll_whole_selection()
     altf4()
+    if launcher_launched():
+        altf4()
 
 
 if __name__ == "__main__":
-    time.sleep(5)
-    scroll_whole_selection()
+    time.sleep(3)
+    position = 0
+    ressource_click(position)
+    # On attend que la ressource soit bien cliquée
+    while not is_clicked(position):
+        time.sleep(tempo_infos('test_tempo'))
+    ressource_treatment(position)

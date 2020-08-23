@@ -1,10 +1,20 @@
 from screen import screen_rectangle, change_colors
 from screen import treshold_black, treshold_all
 from parsing import data_extract
-from read_config import screen_infos
-from treatment import get_start_y
+from read_config import screen_infos, tempo_infos
+from treatment import get_start_y, name_treatment
 from PIL import Image
+import psutil
 import time
+
+
+def wait_test(function):
+    """
+    Permet de bloquer le programme tant que
+    la fonction en argument ne renvoi pas true
+    """
+    while not function():
+        time.sleep(tempo_infos('test_tempo'))
 
 
 def end_of_scroll():
@@ -26,34 +36,34 @@ def end_of_scroll():
     return is_bottom
 
 
-def is_ok_color(value, goal, tolerance):
-    return value >= goal - tolerance and value <= goal + tolerance
-
-
-def is_ok_pixel(x, y, r=50, g=50, b=50, tr=5, tg=5, tb=5):
-    """
-    Indique si un pixel est dans la bonne plage de couleur
-    """
-    image_name = 'images/check_pixel.png'
-    # Capture du pixel
-    screen_rectangle(image_name, x, y, 1, 1)
-
-    # Véification de la teinte du pixel
-    img_pixel = Image.open(image_name)
-    pixel = list(img_pixel.getdata())
-    mr, mg, mb = pixel[0]
-    print(mr, mg, mb)
-    is_ok_red = is_ok_color(mr, r, tr)
-    is_ok_blue = is_ok_color(mb, b, tb)
-    is_ok_green = is_ok_color(mg, g, tg)
-    print(is_ok_red, is_ok_green, is_ok_blue)
-
-
-def test():
-    image_name = 'images/ressource_name.png'
-    img_pixel = Image.open(image_name)
-    pixel = list(img_pixel.getdata())
-    print(pixel)
+# def is_ok_color(value, goal, tolerance):
+#     return value >= goal - tolerance and value <= goal + tolerance
+#
+#
+# def is_ok_pixel(x, y, r=50, g=50, b=50, tr=5, tg=5, tb=5):
+#     """
+#     Indique si un pixel est dans la bonne plage de couleur
+#     """
+#     image_name = 'images/check_pixel.png'
+#     # Capture du pixel
+#     screen_rectangle(image_name, x, y, 1, 1)
+#
+#     # Véification de la teinte du pixel
+#     img_pixel = Image.open(image_name)
+#     pixel = list(img_pixel.getdata())
+#     mr, mg, mb = pixel[0]
+#     print(mr, mg, mb)
+#     is_ok_red = is_ok_color(mr, r, tr)
+#     is_ok_blue = is_ok_color(mb, b, tb)
+#     is_ok_green = is_ok_color(mg, g, tg)
+#     print(is_ok_red, is_ok_green, is_ok_blue)
+#
+#
+# def test():
+#     image_name = 'images/ressource_name.png'
+#     img_pixel = Image.open(image_name)
+#     pixel = list(img_pixel.getdata())
+#     print(pixel)
 
 
 def is_text(text, start_x, start_y, width, height,
@@ -69,8 +79,30 @@ def is_text(text, start_x, start_y, width, height,
     # Récupération de l'info texte
     result_path = change_colors(image_name, test, treshold)
     the_text = data_extract(result_path)
-    print(the_text)
     return text in the_text
+
+
+def process_running(process_name):
+    """
+    Permet de savoir si un processus est lancé
+    """
+    return (process_name in
+            [p.info['name'] for
+             p in psutil.process_iter(attrs=['name'])])
+
+
+def launcher_launched():
+    """
+    Permet de savoir si le launcher Ankama est lancé
+    """
+    return process_running('Ankama Launcher.exe')
+
+
+def dofus_launched():
+    """
+    Permet de savoir si le dofus est lancé
+    """
+    return process_running('Dofus.exe')
 
 
 def ready_to_launch():
@@ -107,6 +139,13 @@ def in_rune_shop():
     return is_text('Rune de forgemagie', start_x, start_y, width, height)
 
 
+def runes_showed():
+    """
+    Permet de savoir si les runes sont bien visibles
+    """
+    return bool(name_treatment(get_start_y(0)).strip())
+
+
 def is_clicked(position):
     """
     Permet de savoir si la ressource est cliquée
@@ -120,5 +159,5 @@ def is_clicked(position):
 
 
 if __name__ == "__main__":
-    time.sleep(5)
-    print(is_clicked(0))
+    process_running('Ankama Launcher.exe')
+    wait_test(launcher_launched)

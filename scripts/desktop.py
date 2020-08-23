@@ -57,8 +57,12 @@ def scroll_down():
     old_top_ressource = name_treatment(get_start_y(0))
     mouse = Controller()
     mouse.scroll(0, -1)
-    while old_top_ressource == name_treatment(get_start_y(0)):
+    # Permet de tester la bonne execution du scroll et passer à la suite sinon
+    lasting = 100
+    while (old_top_ressource == name_treatment(get_start_y(0))
+           and lasting > 0):
         time.sleep(tempo_infos('test_tempo'))
+        lasting -= 1
 
 
 def random_walk(time_step):

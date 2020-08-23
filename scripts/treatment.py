@@ -83,7 +83,6 @@ def lot_number_treatment(start_y):
 
     # Récupère le nombre du lot et renvoi 0 si pas bon
     lot_number = lot_parsing(raw_lot_number)
-
     return lot_number
 
 
@@ -173,5 +172,6 @@ def nbr_lots(position):
 
 
 if __name__ == "__main__":
-    print(mid_price_treatment(215))
+    time.sleep(3)
+    lot_number_treatment(306)
     # print(mid_price_treatment(215).isdigit())

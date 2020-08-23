@@ -1,22 +1,31 @@
-[login_infos]
-password="bar"
-
 [screen_infos]
 # Commun
 line_height = 45
 parsing_height = 25
 
-# open_rune_shop
-brak_rune_x = 1084
-brak_rune_y = 462
-rune_box_x = 382
-rune_box_y = 431
+# ready_to_laucnh
+start_button_x = 325
+start_button_y = 515
+start_button_width = 85
+start_button_height = 35
 
 # in_brakmar
 brak_pos_x = 10
 brak_pos_y = 42
 brak_pos_width = 100
 brak_pos_height = 32
+
+# in_rune_shop
+rune_pos_x = 395
+rune_pos_y = 415
+rune_pos_width = 135
+rune_pos_height = 30
+
+# open_rune_shop
+brak_rune_x = 1084
+brak_rune_y = 462
+rune_box_x = 382
+rune_box_y = 431
 
 # get_start_y
 start_y = 218
@@ -53,23 +62,26 @@ lot_number_width = 70
 lot_price_start_x = 940
 lot_price_width = 80
 
+# is_clicked
+buy_button_x = 1090
+buy_button_width = 65
+
 [tempo_infos]
 # Commun
 quick_tempo = 0.5
+test_tempo = 0
 
 # window
-init_tempo = 0.8
-launch_tempo = 17
+init_tempo = 1
+launch_tempo = 3
 char_tempo = 8
 log_tempo = 19
-shop_tempo = 2
 
 # desktop
 mouse_tempo = 0.1
 
 # bot_dofus
-lag_tempo = 0.5
-scroll_tempo = 1.5
+lag_tempo = 1
 
 [db_infos]
 db_path = 'dofus-trading.csv'

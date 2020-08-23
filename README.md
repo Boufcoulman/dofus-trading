@@ -26,11 +26,10 @@ La vocation secondaire de ce projet est éducative pour ses concepteurs. N'hesit
 - Installer pipenv, dans le shell windows : `pip install pipenv`
 - Lancer pipenv dans le dossier du projet en local, toujours dans le shell windows : `pipenv shell`
 - Installer les dépendances : `pipenv install`
-- Ajouter le répertoire d'installation de dofus à la variable d'environnement windows, PATH :
-`C:\Users\<votre_session_utilisateur>\AppData\Local\Ankama\zaap\dofus` par défaut
+- Ajouter le répertoire d'installation de dofus dans lequel se trove l'executable Ankama Launcher à la variable d'environnement windows, PATH :
+`C:\Users\<votre_session_utilisateur>\AppData\Local\Ankama\zaap\` par défaut
 - Mettre son jeu à jour via le launcher
-- Changer les paramètres de connexion dans le launcher ankama de sorte à avoir une connexion directe vers le jeu ou au choix des personnages
-- Changer les paramètres de connexion dans la fenêtre de jeu dofus de sorte à avoir une connexion directe vers le jeu ou au choix des personnages
+- Changer les paramètres de connexion dans le launcher ankama de sorte à avoir une connexion directe vers le jeu
 
 
 ## Setup la configuration pour qu'elle soit adaptée à son écran
