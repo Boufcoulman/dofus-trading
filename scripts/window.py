@@ -40,7 +40,7 @@ def open_dofus():
     typing_device.type('dofus')
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(12)
+    time.sleep(15)
     # Vérification plein écran windows+arrow up
     with typing_device.pressed(keyboard.Key.cmd):
         use_key(typing_device, keyboard.Key.up)
