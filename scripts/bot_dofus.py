@@ -124,5 +124,4 @@ def rune_mining():
 
 if __name__ == "__main__":
     # rune_mining()
-    time.sleep(3)
-    scroll_whole_selection()
+    rune_mining()
