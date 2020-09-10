@@ -1,6 +1,6 @@
 from pynput import mouse, keyboard
 from stopper import escape_on_escape
-from read_config import password, screen_infos
+from read_config import password, screen_infos, tempo_infos
 import time
 from pixelisation import change_pixelisation
 
@@ -28,19 +28,19 @@ def open_dofus():
     # Ajout du clavier
     typing_device = keyboard.Controller()
 
-    time.sleep(0.8)
+    time.sleep(tempo_infos('init_tempo'))
 
     # Appel de windows+R
     with typing_device.pressed(keyboard.Key.cmd):
         use_key(typing_device, 'r')
 
-    time.sleep(0.2)
+    time.sleep(tempo_infos('quick_tempo'))
 
     # Lancement de dofus
     typing_device.type('dofus')
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(15)
+    time.sleep(tempo_infos('launch_tempo'))
     # Vérification plein écran windows+arrow up
     with typing_device.pressed(keyboard.Key.cmd):
         use_key(typing_device, keyboard.Key.up)
@@ -48,15 +48,15 @@ def open_dofus():
     # Passage de la popup "lancement sans launcher"
     use_key(typing_device, keyboard.Key.enter)
 
-    time.sleep(0.2)
+    time.sleep(tempo_infos('quick_tempo'))
     # Saisie du mot de passe
     typing_device.type(password())
     # Connexion
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(7)
+    time.sleep(tempo_infos('char_tempo'))
     # Validation personnage (si nécessaire)
     use_key(typing_device, keyboard.Key.enter)
-    time.sleep(15)
+    time.sleep(tempo_infos('log_tempo'))
 
 
 def open_rune_shop():
@@ -74,7 +74,7 @@ def open_rune_shop():
     mickey.position = (brak_rune_x, brak_rune_y)
     # Clique
     mickey.click(mouse.Button.left)
-    time.sleep(2)
+    time.sleep(tempo_infos('shop_tempo'))
 
     # Placement de la souris sur la tickbox pour l'affichage des runes
     rune_box_x = screen_infos('rune_box_x')
@@ -82,7 +82,7 @@ def open_rune_shop():
     mickey.position = (rune_box_x, rune_box_y)
     # Clique
     mickey.click(mouse.Button.left)
-    time.sleep(2)
+    time.sleep(tempo_infos('shop_tempo'))
 
 
 def altf4():
@@ -98,4 +98,5 @@ def altf4():
 
 
 if __name__ == "__main__":
+    open_dofus()
     open_rune_shop()

@@ -47,5 +47,23 @@ lot_number_width = 70
 lot_price_start_x = 940
 lot_price_width = 80
 
+[tempo_infos]
+# Commun
+quick_tempo = 0.5
+
+# window
+init_tempo = 0.8
+launch_tempo = 17
+char_tempo = 8
+log_tempo = 19
+shop_tempo = 2
+
+# desktop
+mouse_tempo = 0.1
+
+# bot_dofus
+lag_tempo = 0.3
+scroll_tempo = 1
+
 [db_infos]
 db_path = 'dofus-trading.csv'

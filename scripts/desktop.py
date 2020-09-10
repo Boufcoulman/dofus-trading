@@ -2,7 +2,7 @@ import time
 import random
 from pynput.mouse import Button, Controller
 from stopper import escape_on_escape
-from read_config import screen_infos
+from read_config import screen_infos, tempo_infos
 from pixelisation import change_pixelisation
 
 # Nécessaire pour rendre les cliques souris adéquats
@@ -18,7 +18,8 @@ def random_click(min_x, max_x, min_y, max_y):
     # On définit la souris, on la place et on clique
     mouse = Controller()
     mouse.position = (random_x, random_y)
-    time.sleep(0.05 + random.random() * 0.1)
+    time.sleep(tempo_infos('mouse_tempo')
+               + random.random() * tempo_infos('mouse_tempo'))
     mouse.click(Button.left)
 
 
@@ -62,7 +63,7 @@ def random_walk(time_step):
     """
     mouse = Controller()
     escape_on_escape()
-    step = 30
+    step = 100
     while True:
         randx = random.randint(-step, step)
         randy = random.randint(-step, step)
@@ -71,4 +72,4 @@ def random_walk(time_step):
 
 
 if __name__ == "__main__":
-    null_click()
+    random_walk(0.05)
