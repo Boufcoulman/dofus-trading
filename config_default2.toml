@@ -73,9 +73,6 @@ test_tempo = 0
 
 # window
 init_tempo = 1
-launch_tempo = 3
-char_tempo = 8
-log_tempo = 19
 
 # desktop
 mouse_tempo = 0.1

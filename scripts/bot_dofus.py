@@ -123,5 +123,4 @@ def rune_mining():
 
 
 if __name__ == "__main__":
-    # rune_mining()
     rune_mining()

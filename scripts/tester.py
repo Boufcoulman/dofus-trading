@@ -36,36 +36,6 @@ def end_of_scroll():
     return is_bottom
 
 
-# def is_ok_color(value, goal, tolerance):
-#     return value >= goal - tolerance and value <= goal + tolerance
-#
-#
-# def is_ok_pixel(x, y, r=50, g=50, b=50, tr=5, tg=5, tb=5):
-#     """
-#     Indique si un pixel est dans la bonne plage de couleur
-#     """
-#     image_name = 'images/check_pixel.png'
-#     # Capture du pixel
-#     screen_rectangle(image_name, x, y, 1, 1)
-#
-#     # Véification de la teinte du pixel
-#     img_pixel = Image.open(image_name)
-#     pixel = list(img_pixel.getdata())
-#     mr, mg, mb = pixel[0]
-#     print(mr, mg, mb)
-#     is_ok_red = is_ok_color(mr, r, tr)
-#     is_ok_blue = is_ok_color(mb, b, tb)
-#     is_ok_green = is_ok_color(mg, g, tg)
-#     print(is_ok_red, is_ok_green, is_ok_blue)
-#
-#
-# def test():
-#     image_name = 'images/ressource_name.png'
-#     img_pixel = Image.open(image_name)
-#     pixel = list(img_pixel.getdata())
-#     print(pixel)
-
-
 def is_text(text, start_x, start_y, width, height,
             test=treshold_all, treshold=100):
     """
@@ -100,7 +70,7 @@ def launcher_launched():
 
 def dofus_launched():
     """
-    Permet de savoir si le dofus est lancé
+    Permet de savoir si dofus est lancé
     """
     return process_running('Dofus.exe')
 
