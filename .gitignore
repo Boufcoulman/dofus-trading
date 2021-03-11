@@ -4,3 +4,4 @@ config.toml
 dofus-trading.db
 mouse_positions.txt
 dofus-trading.csv
+old_scripts

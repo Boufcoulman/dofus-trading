@@ -40,4 +40,4 @@ def lot_parsing(text):
 
 
 if __name__ == "__main__":
-    print(price_parsing('124 572.12'))
+    print(data_extract('E:/Images/to_ocr/recette_cheesecake_carotte.jpg'))
